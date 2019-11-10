@@ -1,0 +1,1 @@
+worcker: node index.js
