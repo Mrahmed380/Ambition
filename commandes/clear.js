@@ -16,6 +16,7 @@ module.exports.run = (client, message, args) => {
             .then((messages) => {
                 message.channel.send(`:white_check_mark: |  **${messages.size}** messages ont été supprimés !`).then(msg => msg.delete(5000));
             });
+            .catch(console.error);
 };
 
 module.exports.help = {
