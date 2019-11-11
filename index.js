@@ -1,28 +1,35 @@
-const Discord = require('discord.js')
-const bot = new Discord.Client()
+const Discord = require('discord.js');
+const client = new Discord.Client();
+client.commands = new Discord.Collection();
+const fs = require('fs');
 
-//instance
-bot.on('ready', function (){
-	bot.user.setActivity('le soleil fixement', { type: 'WATCHING' }).catch(console.error)
-	console.log("////////////////////////////////////////////////")
-	console.log("////////// [!] Connexion effectué ! ////////////")
-	console.log("////////////////////////////////////////////////")
+client.on('ready', function (){
+    console.log("////////////////////////////////////////////////")
+    console.log("////////// [!] Connexion effectué ! ////////////")
+    console.log("////////////////////////////////////////////////")
 })
 
+fs.readdir('./commandes/', (error, f) => {
+    if (error) { return console.error(error); }
+        let commandes = f.filter(f => f.split('.').pop() === 'js');
+        if (commandes.length <= 0) { return console.log('Aucune commande trouvée !'); }
 
-bot.on('message', function (message){
-	if (message.content === '=help'){
-		message.channel.send("C'est du pain !")
-	}
+        commandes.forEach((f) => {
+            let commande = require(`./commandes/${f}`);
+            console.log(`${f} commande chargée !`);
+            client.commands.set(commande.help.name, commande);
+        });
+});
 
-	if (message.content === '=serveur'){
-		message.delete()
-		var serveur_size = message.guild.name
-		var serveur_members = message.guild.members.size
-		message.channel.send('serveur: ' + serveur_size + '\npersonnes: ' + serveur_members)
-	}
+fs.readdir('./events/', (error, f) => {
+    if (error) { return console.error(error); }
+        console.log(`${f.length} events chargés`);
 
-})
+        f.forEach((f) => {
+            let events = require(`./events/${f}`);
+            let event = f.split('.')[0];
+            client.on(event, events.bind(null, client));
+        });
+});
 
-
-bot.login(process.env.TOKEN)
+client.login(process.env.TOKEN);
