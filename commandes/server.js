@@ -9,7 +9,6 @@ module.exports.run = (client, message, args) => {
 		.setTitle(':white_check_mark: |  Voici les informations demandé:')
 		.setDescription('**Serveur:** ' + serveur_size + '\n**Personnes:** ' + serveur_members)
 	message.channel.send(server);
-	.catch(console.error);
 };
 
 module.exports.help = {
