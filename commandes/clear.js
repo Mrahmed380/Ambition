@@ -1,3 +1,9 @@
+/**
+ * @commande: clear
+ * @Auteur: Koldran
+ * @license Palindrome
+ **/
+
 const Discord = require("discord.js");
 
 module.exports.run = (client, message, args) => {
@@ -29,5 +35,6 @@ module.exports.run = (client, message, args) => {
 };
 
 module.exports.help = {
-    name: 'clear'
+    name: 'clear',
+    description: 'Une commande qui supprime un nombre de messages demandé.',
 };

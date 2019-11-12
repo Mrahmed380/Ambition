@@ -1,3 +1,9 @@
+/**
+ * @commande: ping
+ * @Auteur: Koldran
+ * @license Palindrome
+ **/
+
 const Discord = require('discord.js');
 
 module.exports.run = (client, message, args) => {
@@ -12,5 +18,6 @@ module.exports.run = (client, message, args) => {
 };
 
 module.exports.help = {
-    name: 'ping'
+    name: 'ping',
+    description: 'Une commande qui donne les ms du bot.',
 };

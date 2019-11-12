@@ -1,3 +1,9 @@
+/**
+ * @commande: kick
+ * @Auteur: Koldran
+ * @license Palindrome
+ **/
+
 const Discord = require('discord.js');
 
 module.exports.run = (client, message, args) => {
@@ -48,5 +54,6 @@ module.exports.run = (client, message, args) => {
 };
 
 module.exports.help = {
-    name: 'kick'
+    name: 'kick',
+    description: 'Une commande qui permet de kick quelqu\'un.',
 };

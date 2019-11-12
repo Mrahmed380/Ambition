@@ -1,3 +1,9 @@
+/**
+ * @commande: y
+ * @Auteur: Koldran
+ * @license Palindrome
+ **/
+
 const Discord = require("discord.js");
 
 module.exports.run = (client, message, args) => {
@@ -22,5 +28,6 @@ module.exports.run = (client, message, args) => {
 };
 
 module.exports.help = {
-    name: 'y'
+    name: 'y',
+    description: 'Une commande inutile.',
 };

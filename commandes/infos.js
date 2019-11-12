@@ -1,3 +1,9 @@
+/**
+ * @commande: infos
+ * @Auteur: Koldran
+ * @license Palindrome
+ **/
+
 const Discord = require("discord.js");
 
 
@@ -17,5 +23,6 @@ module.exports.run = (client, message, args) => {
 };
 
 module.exports.help = {
-    name: 'infos'
+    name: 'infos',
+    description: 'Une commande qui donne des informations sur le bot.',
 };

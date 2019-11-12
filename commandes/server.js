@@ -1,3 +1,9 @@
+/**
+ * @commande: server
+ * @Auteur: Koldran
+ * @license Palindrome
+ **/
+
 const Discord = require("discord.js");
 
 
@@ -18,5 +24,6 @@ module.exports.run = (client, message, args) => {
 };
 
 module.exports.help = {
-    name: 'server'
+    name: 'server',
+    description: 'Une commande qui des informations sur le serveur.',
 };
