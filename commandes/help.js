@@ -21,7 +21,7 @@ module.exports.run = (client, message, args) => {
     setTimeout(function() {
     	message.channel.send(`:white_check_mark: |  Je vous ai envoyé les commandes en privé !`).then(msg => msg.delete(5000))
     	message.author.send("**clear:** nétoie.\n**help:** aide.\n**ping:** test la connexion de l'hébergeur.\n**say:** fait dire au bot ce que vous voulez.\n**server:** donne des infos sur le serveur.\n**y:** surment.")
-    }, 2600);
+    }, 2300);
 
    	
 	
