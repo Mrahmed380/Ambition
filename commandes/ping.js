@@ -13,8 +13,15 @@ module.exports.run = (client, message, args) => {
     let début = Date.now();
 
 
-    message.channel.send(':outbox_tray: |  Ping')
-        .then((m) => m.edit(`:inbox_tray: |  Pain : **${Date.now() - début}**ms`));
+    message.channel.send(':outbox_tray: |  Ping : **[    ]**')
+        .then(message => {
+        	message.edit(`:outbox_tray: |  Ping : **[.   ]**`)
+        	message.edit(`:outbox_tray: |  Ping : **[..  ]**`)
+        	message.edit(`:outbox_tray: |  Ping : **[... ]**`)
+        	message.edit(`:outbox_tray: |  Ping : **[....]**`)
+        	message.edit(`:inbox_tray: |  Pain : **${Date.now() - début}**ms`)
+        });
+         
 };
 
 module.exports.help = {

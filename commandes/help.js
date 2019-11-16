@@ -10,8 +10,21 @@ const Discord = require("discord.js");
 module.exports.run = (client, message, args) => {
 	message.delete()
 
-	message.author.send("```diff\n-Voici toutes mais magnifiques commandes:\n```\n\n\n**clear:**  supprime un nombre spécifique de messages.\n**infos:**  donne basiquement des informations sur le bot.\n**help:**  donne les commandes.\n**kick:**  sert à kick une personne, magique.\n**ping:**  ping un serveur aléatoire et montre les ms du bot.\n**say:**  fait dire au bot ce que bon vous semble.\n**y:**  dit de bon mots.\n\n\n\nJ'ai pas terminé mais, hop, ca part comme ca et puis nik.");
-	message.channel.send(`:white_check_mark: |  Je vous ai envoyé les commandes en privé !`).then(msg => msg.delete(5000))
+	message.channel.send(':white_check_mark: |  Je vous envoi ca tout de suite **[    ]**')
+        .then(message => {
+        	message.edit(`:white_check_mark: |  Je vous envoi ca tout de suite **[.   ]**`)
+        	message.edit(`:white_check_mark: |  Je vous envoi ca tout de suite **[..  ]**`)
+        	message.edit(`:white_check_mark: |  Je vous envoi ca tout de suite **[... ]**`)
+        	message.edit(`:white_check_mark: |  Je vous envoi ca tout de suite **[....]**`).then(msg => msg.delete(3000))
+        });
+
+    setTimeout(function() {
+    	message.channel.send(`:white_check_mark: |  Je vous ai envoyé les commandes en privé !`).then(msg => msg.delete(5000))
+    	message.author.send("**clear:** nétoie.\n**help:** aide.\n**ping:** test la connexion de l'hébergeur.\n**say:** fait dire au bot ce que vous voulez.\n**server:** donne des infos sur le serveur.\n**y:** surment.")
+    }, 2600);
+
+   	
+	
 }
 
     
