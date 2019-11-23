@@ -4,23 +4,25 @@
  * @license Palindrome
  **/
 
-const Discord = require('discord.js');
+const Discord = require('discord.js') ;
 
 module.exports.run = (client, message, args) => {
 	message.delete()
 
+    let début = Date.now() ;
 
-    let début = Date.now();
 
-
-    message.channel.send(':outbox_tray: |  Ping : **[    ]**')
+    message.channel.send(':outbox_tray: |  Ping : ')
         .then(message => {
-        	message.edit(`:outbox_tray: |  Ping : **[.   ]**`)
-        	message.edit(`:outbox_tray: |  Ping : **[..  ]**`)
-        	message.edit(`:outbox_tray: |  Ping : **[... ]**`)
-        	message.edit(`:outbox_tray: |  Ping : **[....]**`)
+        	message.edit(`:outbox_tray: |  Ping : **.**`)
+        	message.edit(`:outbox_tray: |  Ping : **..**`)
+        	message.edit(`:outbox_tray: |  Ping : **...**`)
+        	message.edit(`:outbox_tray: |  Ping : `)
+            message.edit(`:outbox_tray: |  Ping : **.**`)
+            message.edit(`:outbox_tray: |  Ping : **..**`)
+            message.edit(`:outbox_tray: |  Ping : **...**`)
         	message.edit(`:inbox_tray: |  Pain : **${Date.now() - début}**ms`)
-        });
+        }) ;
          
 };
 

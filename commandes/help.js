@@ -10,19 +10,10 @@ const Discord = require("discord.js");
 module.exports.run = (client, message, args) => {
 	message.delete()
 
-	message.channel.send(':white_check_mark: |  Je vous envoi ca tout de suite **[    ]**')
-        .then(message => {
-        	message.edit(`:white_check_mark: |  Je vous envoi ca tout de suite **[.   ]**`)
-        	message.edit(`:white_check_mark: |  Je vous envoi ca tout de suite **[..  ]**`)
-        	message.edit(`:white_check_mark: |  Je vous envoi ca tout de suite **[... ]**`)
-        	message.edit(`:white_check_mark: |  Je vous envoi ca tout de suite **[....]**`).then(msg => msg.delete(3000))
-        });
-
     setTimeout(function() {
-    	message.channel.send(`:white_check_mark: |  Je vous ai envoyé les commandes en privé !`).then(msg => msg.delete(5000))
-    	message.author.send("**clear:** nétoie.\n**help:** aide.\n**ping:** test la connexion de l'hébergeur.\n**say:** fait dire au bot ce que vous voulez.\n**server:** donne des infos sur le serveur.\n**y:** surment.")
-    }, 2300);
-
+        message.author.send("```diff\n- Voici quelque commandes utiles:\n```\n\n\n\n> **clear :**\n - suprimme un nombre de message demandé. Exemple `=clear {nombre}`\n\n> **help :**\n - Vous donne les commandes.\n\n> **ping :**\n - Test la connexion de l'hébergeur.\n\n> **say :**\n - Fait dire au bot ce que vous voulez.\n\n> **infos :**\n - Donne des infos sur le serveur.\n\n> **y :**\n - Alors... Oui, mais en fait non.")
+        message.channel.send(`:white_check_mark: |  Je vous ai envoyé les commandes en privé, normalement vous pouvais les voir !`).then(msg => msg.delete(5000))
+    }, 1000);
    	
 	
 }

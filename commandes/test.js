@@ -1,5 +1,5 @@
 /**
- * @commande: infos
+ * @commande: test
  * @Auteur: Koldran
  * @license Palindrome
  **/
