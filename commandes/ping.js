@@ -17,10 +17,7 @@ module.exports.run = (client, message, args) => {
         	message.edit(`:outbox_tray: |  Ping : **.**`)
         	message.edit(`:outbox_tray: |  Ping : **..**`)
         	message.edit(`:outbox_tray: |  Ping : **...**`)
-        	message.edit(`:outbox_tray: |  Ping : `)
-            message.edit(`:outbox_tray: |  Ping : **.**`)
-            message.edit(`:outbox_tray: |  Ping : **..**`)
-            message.edit(`:outbox_tray: |  Ping : **...**`)
+        	message.edit(`:outbox_tray: |  Ping : **....**`)
         	message.edit(`:inbox_tray: |  Pain : **${Date.now() - début}**ms`)
         }) ;
          

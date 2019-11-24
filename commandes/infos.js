@@ -29,7 +29,14 @@ module.exports.run = (client, message, args) => {
 		.setImage(serveur_icon)
 
 
-	message.channel.send(server);
+	message.channel.send(`:outbox_tray: |  Je vous envoie ça tout de suite : `)
+	.then(message => {
+        	message.edit(`:outbox_tray: |  Je vous envoie ça tout de suite : **.**`)
+        	message.edit(`:outbox_tray: |  Je vous envoie ça tout de suite : **..**`)
+        	message.edit(`:outbox_tray: |  Je vous envoie ça tout de suite : **...**`)
+        	message.edit(`:outbox_tray: |  Je vous envoie ça tout de suite : **....**`)
+        	message.edit(server)
+        }) ;
 };
 
 module.exports.help = {
