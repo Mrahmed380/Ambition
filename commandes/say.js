@@ -16,7 +16,7 @@ module.exports.run = (client, message, args) => {
 	if (!args[0]) 
 		{
 			const filter = m => m.author.id === message.author.id;
-            message.channel.send(':question: |  Que voulez-vous dire ? Veuillez écrire quelque chose. Vous pouvez faire `stop` pour annulé la commande.').then(q => q.delete(35000));
+            message.channel.send(':question: |  Que voulez-vous dire ? Veuillez écrire quelque chose. Vous pouvez faire `stop` pour annulé la commande.').then(q => q.delete(30000));
             message.channel.awaitMessages(filter, {
                 max: 1,
                 time: 60000
@@ -25,7 +25,6 @@ module.exports.run = (client, message, args) => {
             	message.channel.bulkDelete('2')
             	message.channel.send(collected.first().content)
             }).catch(err => {
-                message.channel.bulkDelete('1')
                 message.channel.send(`:x: |  Vous avez prit trop de temps pour répondre !`).then(r => r.delete(5000));
             });
 		}
