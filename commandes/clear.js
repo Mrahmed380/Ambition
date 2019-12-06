@@ -1,24 +1,28 @@
-/**
+/*
  * @commande: clear
  * @Auteur: Koldran
  * @license Palindrome
- **/
+ */
+
 
 const Discord = require("discord.js");
 
+
+
+
 module.exports.run = async (client, message, args) => {
+
 	message.delete()
 
     const delay = ms => new Promise(res => setTimeout(res, ms));
     await delay(900);
 
 
-
     if (!message.guild.member(message.author).hasPermission('MANAGE_MESSAGES')) 
     	{ return message.channel.send(`:no_entry_sign: |  Vous n\'avez pas les permissions pour utiliser cette commande !`).then(msg => msg.delete(5000)); }
 
     if (args[0] === '0')
-        { return message.channel.send(`:x: |  Vous devez spécifier un nombre de messages à supprimer autre que **0** !`).then(msg => msg.delete(5000)); }
+        { return message.channel.send(`:x: |  Vous devez spécifier un nombre de messages à supprimer, autre que **0** !`).then(msg => msg.delete(5000)); }
 
     if (args[0] > 100)
         { return message.channel.send(`:x: |  Vous ne pouvez pas supprimer plus de **100** messages, car l\'API de discord ne le permet pas !`).then(msg => msg.delete(5000)); }
@@ -29,11 +33,11 @@ module.exports.run = async (client, message, args) => {
             message.channel.send(':question: |  Combien de message voulez-vous supprimer ? Vous pouvez faire `stop` pour annulé la commande.')
             message.channel.awaitMessages(filter, {
                 max: 1,
-                time: 30000
+                time: 60000
             }).then(collected => {
 
 
-                collected.delete(35000);
+                collected.delete(65000);
                 if (collected.first().content === 'stop') 
                     {
                         message.channel.bulkDelete('2')
@@ -45,6 +49,7 @@ module.exports.run = async (client, message, args) => {
                         message.channel.bulkDelete('2')
                         return message.channel.send(`:x: |  Vous devez spécifier un nombre de messages à supprimer autre que **0** !`).then(msg => msg.delete(5000)); 
                     }
+
 
                 if (collected.first().content > 100)
                     { 
@@ -75,9 +80,10 @@ module.exports.run = async (client, message, args) => {
 
             }).catch(err => {
                 message.channel.bulkDelete('1')
-                message.channel.send(`:x: |  Vous avez prit trop de temps pour répondre !`).then(r => r.delete(5000));
+                message.channel.send(`:x: |  60 secondes se sont écoulées. Vous avez prit trop de temps pour répondre !`).then(r => r.delete(5000));
             });
         }
+
 
 
         message.channel.bulkDelete(args[0])
@@ -92,7 +98,8 @@ module.exports.run = async (client, message, args) => {
 
 
 
+
+
 module.exports.help = {
-    name: 'clear',
-    description: 'Une commande qui supprime un nombre de messages demandé.',
+    name: 'clear'
 };

@@ -1,12 +1,17 @@
-/**
+/*
  * @commande: say
  * @Auteur: Koldran
  * @license Palindrome
- **/
+ */
+
 
 const Discord = require("discord.js");
 
-module.exports.run = (client, message, args) => {
+
+
+
+module.exports.run = async (client, message, args) => {
+
 	message.delete()
 
 
@@ -21,19 +26,20 @@ module.exports.run = (client, message, args) => {
                 max: 1,
                 time: 60000
             }).then(collected => {
-            	collected.delete(35000);
+            	collected.delete(65000);
             	message.channel.bulkDelete('2')
             	message.channel.send(collected.first().content)
             }).catch(err => {
-                message.channel.send(`:x: |  Vous avez prit trop de temps pour répondre !`).then(r => r.delete(5000));
+                message.channel.send(`:x: |  60 secondes se sont écoulées. Vous avez prit trop de temps pour répondre !`).then(r => r.delete(5000));
             });
 		}
 
-	
     message.channel.send(message.content.slice(5, message.content.length));
 };
 
+
+
+
 module.exports.help = {
-    name: 'say',
-    description: 'Une commande qui permet de faire dire n\'importe quoi au bot.',
+    name: 'say'
 };
