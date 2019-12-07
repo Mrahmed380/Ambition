@@ -41,7 +41,10 @@ module.exports.run = async (client, message, args) => {
 	var temps = 15000;
 
 	if (cooldown.has(message.author.id)) {
-		message.channel.send(':stopwatch: |  Vous devez attendre **15** secondes avant de pouvoir réutiliser la commande.').then(msg => msg.delete(2000));
+		const s1 = new Discord.RichEmbed()
+            .setColor('#ffa500')
+            .setTitle(':stopwatch: |  Vous devez attendre **15** secondes avant de pouvoir réutiliser la commande.')
+		message.channel.send(s1).then(msg => msg.delete(2000));
 	}
 	else {
 		message.channel.send(words[Math.floor(Math.random() * words.length)]).then(msg => msg.delete(30000));
