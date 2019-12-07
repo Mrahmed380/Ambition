@@ -17,8 +17,18 @@ module.exports.run = async (client, message, args) => {
 	if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')) 
     	{ return message.channel.send(':no_entry_sign: |  Vous n\'avez pas les permissions pour utiliser cette commande !').then(msg => msg.delete(5000)); }
 
-    message.channel.send('UI').then(msg => msg.delete(5000));
+    const test = new Discord.RichEmbed()
+        .setColor('#32cd32')
+        .setTitle(':white_check_mark: |  Ui.')
 
+
+    message.channel.send(test).then(msg => msg.delete(5000))
+	.catch(err => {
+		const erreur = new Discord.RichEmbed()
+        	.setColor('#ff0000')
+        	.setTitle(':white_check_mark: |  Ion.')
+		message.channel.send(erreur).then(r => r.delete(5000));
+	})
 };
 
 

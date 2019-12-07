@@ -14,15 +14,19 @@ module.exports.run = (client, message, args) => {
 
 	message.delete()
 
-    let début = Date.now() ;
+    let début = Date.now();
 
     message.channel.send(':outbox_tray: |  Ping : ')
         .then(message => {
+            var ping = Date.now() - début;
+            const s1 = new Discord.RichEmbed()
+                .setColor('#32cd32')
+                .setTitle(`:inbox_tray: |  Pain : **${ping}**ms`)
         	message.edit(`:outbox_tray: |  Ping : **.**`)
         	message.edit(`:outbox_tray: |  Ping : **..**`)
         	message.edit(`:outbox_tray: |  Ping : **...**`)
         	message.edit(`:outbox_tray: |  Ping : **....**`)
-        	message.edit(`:inbox_tray: |  Pain : **${Date.now() - début}**ms`)
+        	message.edit(s1)
         }) ;
          
 };
