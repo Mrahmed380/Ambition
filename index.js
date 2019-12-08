@@ -131,4 +131,4 @@ fs.readdir('./events/', (error, f) => {
         });
 });
 
-client.login('NjI4Njk0OTMzMzkzNjM3Mzc2.Xchwbg.Z0WS5F0r4vrLIfpVwc-A3pxyuuM');
+client.login(TOKEN);
