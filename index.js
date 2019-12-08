@@ -131,4 +131,4 @@ fs.readdir('./events/', (error, f) => {
         });
 });
 
-client.login(TOKEN);
+client.login(process.env.TOKEN);
