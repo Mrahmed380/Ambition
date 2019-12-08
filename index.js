@@ -1,3 +1,9 @@
+/**
+ * @fichier: index.js
+ * @Auteur: Koldran
+ * @license Palindrome
+ **/
+
 const Discord = require('discord.js');
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -8,6 +14,99 @@ client.on('ready', function (){
     console.log("////////// [!] Connexion effectué ! ////////////")
     console.log("////////////////////////////////////////////////")
 })
+
+
+
+
+
+
+
+//Mots bannis.
+client.on("message", async message => {
+    if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')){
+        if (message.content.includes('☭')) {
+            message.delete()
+        }
+    }
+})
+client.on('messageUpdate', (oldMessage, newMessage) => {
+    if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')){
+        if(newMessage.content.includes('☭')){
+            newMessage.delete()
+        }
+    }
+})
+
+//_________________________________//
+client.on("message", async message => {
+    if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')){
+        if (message.content.includes('🖕')) {
+            message.delete()
+        }
+    }
+})
+client.on('messageUpdate', (oldMessage, newMessage) => {
+    if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')){
+        if(newMessage.content.includes('🖕')){
+            newMessage.delete()
+        }
+    }
+})
+
+//_________________________________//
+client.on("message", async message => {
+    if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')){
+        if (message.content.includes(':middle_finger:')) {
+            message.delete()
+        }
+    }
+})
+client.on('messageUpdate', (oldMessage, newMessage) => {
+    if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')){
+        if(newMessage.content.includes(':middle_finger:')){
+            newMessage.delete()
+        }
+    }
+})
+
+//_________________________________//
+
+client.on("message", async message => {
+    if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')){
+        if (message.content.includes('卐')) {
+            message.delete()
+        }
+    }
+})
+client.on('messageUpdate', (oldMessage, newMessage) => {
+    if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')){
+        if(newMessage.content.includes('卐')){
+            newMessage.delete()
+        }
+    }
+})
+
+//_________________________________//
+
+client.on("message", async message => {
+    if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')){
+        if (message.content.includes('https://discord.gg/')) {
+            message.delete()
+        }
+    }
+})
+client.on('messageUpdate', (oldMessage, newMessage) => {
+    if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')){
+        if(newMessage.content.includes('https://discord.gg/')){
+            newMessage.delete()
+        }
+    }
+})
+
+
+
+
+
 
 fs.readdir('./commandes/', (error, f) => {
     if (error) { return console.error(error); }
@@ -32,4 +131,4 @@ fs.readdir('./events/', (error, f) => {
         });
 });
 
-client.login(process.env.TOKEN);
+client.login('NjI4Njk0OTMzMzkzNjM3Mzc2.Xchwbg.Z0WS5F0r4vrLIfpVwc-A3pxyuuM');
