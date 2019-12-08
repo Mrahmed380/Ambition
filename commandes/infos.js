@@ -10,7 +10,7 @@ const Discord = require("discord.js");
 
 
 
-module.exports.run = (client, message, args) => {
+module.exports.run = async (client, message, args) => {
 
 	message.delete()
 
@@ -31,6 +31,9 @@ module.exports.run = (client, message, args) => {
 		.setColor("#32cd32")
 		.setDescription('\n\n**Nom du serveur:** \n' + serveur_size + '\n\n**Nombre de membres:** \n' + serveur_members + '\n\n**Serveur vérifié:**  \n' + serveur_verif +'\n\n**Icon:** ')
 		.setImage(serveur_icon)
+
+	const delay = ms => new Promise(res => setTimeout(res, ms));
+    await delay(700);
 
 	message.channel.send(`:outbox_tray: |  Je vous envoie ça tout de suite : `)
 	.then(message => {

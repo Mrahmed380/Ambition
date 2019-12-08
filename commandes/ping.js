@@ -10,11 +10,14 @@ const Discord = require("discord.js");
 
 
 
-module.exports.run = (client, message, args) => {
+module.exports.run = async (client, message, args) => {
 
 	message.delete()
 
     let début = Date.now();
+
+    const delay = ms => new Promise(res => setTimeout(res, ms));
+    await delay(700);
 
     message.channel.send(':outbox_tray: |  Ping : ')
         .then(message => {

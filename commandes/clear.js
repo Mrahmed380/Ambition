@@ -14,9 +14,6 @@ module.exports.run = async (client, message, args) => {
 
 	message.delete()
 
-    const delay = ms => new Promise(res => setTimeout(res, ms));
-    await delay(900);
-
 
     if (!message.guild.member(message.author).hasPermission('MANAGE_MESSAGES')) 
     	{
@@ -127,6 +124,9 @@ module.exports.run = async (client, message, args) => {
             });
         }
 
+
+        const delay = ms => new Promise(res => setTimeout(res, ms));
+        await delay(900);
 
 
         await message.channel.bulkDelete(args[0])

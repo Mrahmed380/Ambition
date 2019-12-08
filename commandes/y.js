@@ -39,6 +39,8 @@ module.exports.run = async (client, message, args) => {
 
 	message.delete()
 	var temps = 15000;
+	const delay = ms => new Promise(res => setTimeout(res, ms));
+    await delay(700);
 
 	if (cooldown.has(message.author.id)) {
 		const s1 = new Discord.RichEmbed()
