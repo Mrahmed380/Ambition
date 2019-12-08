@@ -16,7 +16,7 @@ const words = [
 	":page_with_curl: |  Manger les sent-bon pour les toilettes est très peu recommandé pour la santé et pour l'haleine.",
 	":page_with_curl: |  Si tu utilises des toilettes turc, n'oublie pas d'utiliser la douchette à caca.",
 	":page_with_curl: |  Si tu vois un mot pas gentil sur ton écran, éteint tes yeux. Ils seront plus reposés comme ça.",
-	":page_with_curl: |  Pour des raisons de sécurité, ne boit pas de l'eau de javel, car cale a un très mauvais goût.",
+	":page_with_curl: |  Pour des raisons de sécurité, ne boit pas de l'eau de javel, car cela a un très mauvais goût.",
 	":page_with_curl: |  Les biscuits peuvent être appréciés par les gros, mais aussi par les personnes de corpulence normale et moyenne.",
 	":page_with_curl: |  Si par hasard tu voulais le crémage, mais que celui-ci tombe, tu n'as pas à avoir peur car tout va bien se passer.",
 	":page_with_curl: |  Une chips pour le goûter, c'est pas très bon pour la santé et ca fait du bruit.",
