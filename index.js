@@ -30,7 +30,7 @@ client.on("message", async message => {
     }
 })
 client.on('messageUpdate', (oldMessage, newMessage) => {
-    if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')){
+    if (!newMessage.guild.member(newMessage.author).hasPermission('ADMINISTRATOR')){
         if(newMessage.content.includes('☭')){
             newMessage.delete()
         }
@@ -46,7 +46,7 @@ client.on("message", async message => {
     }
 })
 client.on('messageUpdate', (oldMessage, newMessage) => {
-    if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')){
+    if (!newMessage.guild.member(newMessage.author).hasPermission('ADMINISTRATOR')){
         if(newMessage.content.includes('🖕')){
             newMessage.delete()
         }
@@ -62,7 +62,7 @@ client.on("message", async message => {
     }
 })
 client.on('messageUpdate', (oldMessage, newMessage) => {
-    if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')){
+    if (!newMessage.guild.member(newMessage.author).hasPermission('ADMINISTRATOR')){
         if(newMessage.content.includes(':middle_finger:')){
             newMessage.delete()
         }
@@ -79,7 +79,7 @@ client.on("message", async message => {
     }
 })
 client.on('messageUpdate', (oldMessage, newMessage) => {
-    if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')){
+    if (!newMessage.guild.member(newMessage.author).hasPermission('ADMINISTRATOR')){
         if(newMessage.content.includes('卐')){
             newMessage.delete()
         }
@@ -96,7 +96,7 @@ client.on("message", async message => {
     }
 })
 client.on('messageUpdate', (oldMessage, newMessage) => {
-    if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')){
+    if (!newMessage.guild.member(newMessage.author).hasPermission('ADMINISTRATOR')){
         if(newMessage.content.includes('https://discord.gg/')){
             newMessage.delete()
         }
