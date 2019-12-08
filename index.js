@@ -90,13 +90,20 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
 
 client.on("message", async message => {
     if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')){
+        if (message.content.includes('https://discord.gg/EweFGVR','https://discord.gg/dpFb93r')) {
+        
+        }
         if (message.content.includes('https://discord.gg/')) {
             message.delete()
         }
+
     }
 })
 client.on('messageUpdate', (oldMessage, newMessage) => {
     if (!newMessage.guild.member(newMessage.author).hasPermission('ADMINISTRATOR')){
+        if(newMessage.content.includes('https://discord.gg/EweFGVR','https://discord.gg/dpFb93r')){
+
+        }
         if(newMessage.content.includes('https://discord.gg/')){
             newMessage.delete()
         }
