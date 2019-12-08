@@ -88,8 +88,8 @@ module.exports.run = async (client, message, args) => {
                     {
                         let nbr1 = collected.first().content;
                         message.channel.bulkDelete('2')
-                        setTimeout(function() {
-                            message.channel.bulkDelete(nbr1)
+                        setTimeout(async function() {
+                            await message.channel.bulkDelete(nbr1)
                             .then((messages) => {
                             if (collected.first().content === '1')
                                 {
@@ -129,7 +129,7 @@ module.exports.run = async (client, message, args) => {
 
 
 
-        message.channel.bulkDelete(args[0])
+        await message.channel.bulkDelete(args[0])
         .then((messages) => {
             if (args[0] === '1')
                 {

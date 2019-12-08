@@ -32,7 +32,7 @@ module.exports.run = async (client, message, args) => {
             message.channel.send(s2).then(q => q.delete(30000));
             message.channel.awaitMessages(filter, {
                 max: 1,
-                time: 60000
+                time: 60000,
             }).then(collected => {
             	collected.delete(65000);
 
