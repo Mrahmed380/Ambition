@@ -18,6 +18,20 @@ client.on('ready', function (){
 
 
 
+//welcom
+client.on('guildMemberAdd', member => {
+    var nom = member.user;
+    var avatar = member.user.avatarURL;
+    member.guild.channels.get('534443162949910537').send(`**\`\`\`Une nouvelle personne à rejoins le serveur.\`\`\`**\n***Bienvenue à toi ${nom} !***\n\n●      **${avatar}**      ●`)
+});
+
+
+
+
+
+
+
+
 
 
 
