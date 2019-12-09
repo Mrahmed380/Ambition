@@ -6,6 +6,8 @@
 
 
 const Discord = require("discord.js");
+var name = "say";
+var res = name.toLowerCase();
 
 
 
@@ -39,7 +41,7 @@ module.exports.run = async (client, message, args) => {
             }).then(collected => {
             	collected.delete(65000);
 
-                if (collected.first().content === 'stop') 
+                if (collected.first().content.toLowerCase() === 'stop') 
                     {
                         message.channel.bulkDelete('2')
                         const stop = new Discord.RichEmbed()
@@ -65,5 +67,5 @@ module.exports.run = async (client, message, args) => {
 
 
 module.exports.help = {
-    name: 'say'
+    name: name,
 };

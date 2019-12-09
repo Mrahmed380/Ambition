@@ -6,6 +6,8 @@
 
 
 const Discord = require("discord.js");
+var name = "help";
+var res = name.toLowerCase();
 
 
 
@@ -48,5 +50,5 @@ module.exports.run = async (client, message, args) => {
 
 
 module.exports.help = {
-    name: 'help',
+    name: name,
 };

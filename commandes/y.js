@@ -6,6 +6,8 @@
 
 
 const Discord = require("discord.js");
+var name = "y";
+var res = name.toLowerCase();
 const cooldown = new Set();
 const words = [
 	":page_with_curl: |  N'oublie pas de te brosser les dents avant de te coucher, mon doux petit prince.",
@@ -63,5 +65,5 @@ module.exports.run = async (client, message, args) => {
 
 
 module.exports.help = {
-    name: 'y'
+    name: name,
 };

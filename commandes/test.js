@@ -6,6 +6,8 @@
 
 
 const Discord = require("discord.js");
+var name = "test";
+var res = name.toLowerCase();
 
 
 
@@ -25,20 +27,21 @@ module.exports.run = async (client, message, args) => {
     const test = new Discord.RichEmbed()
         .setColor('#32cd32')
         .setTitle(':white_check_mark: |  Ui.')
-
-
     message.channel.send(test).then(msg => msg.delete(5000))
+
+
 	.catch(err => {
 		const erreur = new Discord.RichEmbed()
         	.setColor('#ff0000')
         	.setTitle(':white_check_mark: |  Ion.')
 		message.channel.send(erreur).then(r => r.delete(5000));
 	})
+
 };
 
 
 
 
 module.exports.help = {
-    name: "test",
+    name: name,
 };

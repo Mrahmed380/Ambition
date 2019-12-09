@@ -1,13 +1,17 @@
-/**
+/*
  * @fichier: index.js
  * @Auteur: Koldran
  * @license Palindrome
- **/
+ * @Ambition 2019
+ */
 
 const Discord = require('discord.js');
+const fs = require('fs');
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
-const fs = require('fs');
+
+
+
 
 client.on('ready', function (){
     console.log("////////////////////////////////////////////////")
@@ -15,24 +19,11 @@ client.on('ready', function (){
     console.log("////////////////////////////////////////////////")
 })
 
-
-
-
-//welcom
 client.on('guildMemberAdd', member => {
     var nom = member.user;
     var avatar = member.user.avatarURL;
-    member.guild.channels.get('534443162949910537').send(`**\`\`\`Une nouvelle personne à rejoins le serveur.\`\`\`**\n***Bienvenue à toi ${nom} !***\n\n●      **${avatar}**      ●`)
-});
-
-
-
-
-
-
-
-
-
+    member.guild.channels.get('645024434947620884').send(`**\`\`\`Une nouvelle personne à rejoins le serveur.\`\`\`**\n***Bienvenue à toi ${nom} !***\n\n●      **${avatar}**      ●`)
+})
 
 
 //Mots bannis.
@@ -41,88 +32,63 @@ client.on("message", async message => {
         if (message.content.includes('☭')) {
             message.delete()
         }
-    }
-})
-client.on('messageUpdate', (oldMessage, newMessage) => {
-    if (!newMessage.guild.member(newMessage.author).hasPermission('ADMINISTRATOR')){
-        if(newMessage.content.includes('☭')){
-            newMessage.delete()
-        }
-    }
-})
-
-//_________________________________//
-client.on("message", async message => {
-    if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')){
         if (message.content.includes('🖕')) {
             message.delete()
         }
-    }
-})
-client.on('messageUpdate', (oldMessage, newMessage) => {
-    if (!newMessage.guild.member(newMessage.author).hasPermission('ADMINISTRATOR')){
-        if(newMessage.content.includes('🖕')){
-            newMessage.delete()
-        }
-    }
-})
-
-//_________________________________//
-client.on("message", async message => {
-    if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')){
         if (message.content.includes(':middle_finger:')) {
             message.delete()
         }
-    }
-})
-client.on('messageUpdate', (oldMessage, newMessage) => {
-    if (!newMessage.guild.member(newMessage.author).hasPermission('ADMINISTRATOR')){
-        if(newMessage.content.includes(':middle_finger:')){
-            newMessage.delete()
-        }
-    }
-})
-
-//_________________________________//
-
-client.on("message", async message => {
-    if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')){
         if (message.content.includes('卐')) {
             message.delete()
         }
     }
 })
+
 client.on('messageUpdate', (oldMessage, newMessage) => {
     if (!newMessage.guild.member(newMessage.author).hasPermission('ADMINISTRATOR')){
+        if(newMessage.content.includes('☭')){
+            newMessage.delete()
+        }
+        if(newMessage.content.includes('🖕')){
+            newMessage.delete()
+        }
+        if(newMessage.content.includes(':middle_finger:')){
+            newMessage.delete()
+        }
         if(newMessage.content.includes('卐')){
             newMessage.delete()
         }
     }
 })
 
-//_________________________________//
-
+//Liens bannis.
 client.on("message", async message => {
     if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')){
-        if (message.content.includes('https://discord.gg/EweFGVR','https://discord.gg/dpFb93r')) {
-        
-        }
         if (message.content.includes('https://discord.gg/')) {
-            message.delete()
+            if (message.content.includes('https://discord.gg/EweFGVR','https://discord.gg/dpFb93r')) {
+
+            }
+            else {
+                message.delete()
+            }
         }
 
     }
 })
 client.on('messageUpdate', (oldMessage, newMessage) => {
     if (!newMessage.guild.member(newMessage.author).hasPermission('ADMINISTRATOR')){
-        if(newMessage.content.includes('https://discord.gg/EweFGVR','https://discord.gg/dpFb93r')){
-
-        }
         if(newMessage.content.includes('https://discord.gg/')){
-            newMessage.delete()
+            if(newMessage.content.includes('https://discord.gg/EweFGVR','https://discord.gg/dpFb93r')){
+
+            }
+            else {
+                newMessage.delete()
+            }
         }
     }
 })
+
+
 
 
 
