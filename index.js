@@ -91,12 +91,16 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
 
 //Le salon mêmes.
 client.on("message", async message => {
-    if (message.channel.id === "593833705970073620") {
-        if (message.attachments.size > 0 || message.embeds.length > 0) {}
-        else {message.delete();}
+    var links = ['https://','http://'];
+    if (message.channel.id === "645024434947620884") {
+        if (message.attachments.size > 0 || message.content.includes('https://','http://')) {}
+        else {
+            setTimeout(function() {
+                message.delete();
+            }, 500);
+        }
     }
 })
-
 
 
 
