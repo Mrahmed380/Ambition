@@ -22,7 +22,7 @@ client.on('ready', function (){
 client.on('guildMemberAdd', member => {
     var nom = member.user;
     var avatar = member.user.avatarURL;
-    member.guild.channels.get('645024434947620884').send(`**\`\`\`Une nouvelle personne à rejoins le serveur.\`\`\`**\n***Bienvenue à toi ${nom} !***\n\n●      **${avatar}**      ●`)
+    member.guild.channels.get('534443162949910537').send(`**\`\`\`Une nouvelle personne à rejoins le serveur.\`\`\`**\n***Bienvenue à toi ${nom} !***\n\n●      **${avatar}**      ●`)
 })
 
 
@@ -61,10 +61,11 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
     }
 })
 
+
 //Liens bannis.
 client.on("message", async message => {
     if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')){
-        if (message.content.includes('https://discord.gg/')) {
+        if (message.content.includes('https://discord.gg/' || 'discordapp.com/invite/')) {
             if (message.content.includes('https://discord.gg/EweFGVR','https://discord.gg/dpFb93r')) {
 
             }
@@ -77,7 +78,7 @@ client.on("message", async message => {
 })
 client.on('messageUpdate', (oldMessage, newMessage) => {
     if (!newMessage.guild.member(newMessage.author).hasPermission('ADMINISTRATOR')){
-        if(newMessage.content.includes('https://discord.gg/')){
+        if(newMessage.content.includes('https://discord.gg/' || 'discordapp.com/invite/')){
             if(newMessage.content.includes('https://discord.gg/EweFGVR','https://discord.gg/dpFb93r')){
 
             }
@@ -88,6 +89,13 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
     }
 })
 
+//Le salon mêmes.
+client.on("message", async message => {
+    if (message.channel.id === "593833705970073620") {
+        if (message.attachments.size > 0 || message.embeds.length > 0) {}
+        else {message.delete();}
+    }
+})
 
 
 
