@@ -6,9 +6,10 @@
 
 
 const Discord = require("discord.js");
-var name = "y";
-var res = name.toLowerCase();
 const cooldown = new Set();
+
+//=======================================================//
+
 const words = [
 	":page_with_curl: |  N'oublie pas de te brosser les dents avant de te coucher, mon doux petit prince.",
 	":page_with_curl: |  Sauter du 2e ou 3e étage est très souvent une mauvaise idée.",
@@ -37,12 +38,22 @@ const words = [
 ]
 
 
+
+//=======================================================//
+
+
+
 module.exports.run = async (client, message, args) => {
 
 	message.delete()
+
+	//=======================================================//
+
 	var temps = 15000;
 	const delay = ms => new Promise(res => setTimeout(res, ms));
     await delay(700);
+
+    //=======================================================//
 
 	if (cooldown.has(message.author.id)) {
 		const s1 = new Discord.RichEmbed()
@@ -62,7 +73,11 @@ module.exports.run = async (client, message, args) => {
 };
 
 
+//=======================================================//
 
+
+var name = "y";
+var def = name.toLowerCase();
 
 module.exports.help = {
     name: name,

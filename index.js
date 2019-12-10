@@ -11,6 +11,7 @@ const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
 
+//=======================================================//
 
 
 client.on('ready', function (){
@@ -19,25 +20,43 @@ client.on('ready', function (){
     console.log("////////////////////////////////////////////////")
 })
 
+//=======================================================//
+
 client.on('guildMemberAdd', member => {
     var nom = member.user;
     var avatar = member.user.avatarURL;
-    member.guild.channels.get('534443162949910537').send(`**\`\`\`Une nouvelle personne à rejoins le serveur.\`\`\`**\n***Bienvenue à toi ${nom} !***\n\n●      **${avatar}**      ●`)
+    member.guild.channels.get(process.env.WELCOM).send(`**\`\`\`Une nouvelle personne à rejoins le serveur.\`\`\`**\n***Bienvenue à toi ${nom} !***\n\n●      **${avatar}**      ●`)
 })
+
+//=======================================================//
+
+
 
 
 //Mots bannis.
 client.on("message", async message => {
     if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')){
+
+        //====================================//
+
         if (message.content.includes('☭')) {
             message.delete()
         }
+
+        //====================================//
+
         if (message.content.includes('🖕')) {
             message.delete()
         }
+
+        //====================================//
+
         if (message.content.includes(':middle_finger:')) {
             message.delete()
         }
+
+        //====================================//
+
         if (message.content.includes('卐')) {
             message.delete()
         }
@@ -46,15 +65,27 @@ client.on("message", async message => {
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
     if (!newMessage.guild.member(newMessage.author).hasPermission('ADMINISTRATOR')){
+
+        //====================================//
+
         if(newMessage.content.includes('☭')){
             newMessage.delete()
         }
+
+        //====================================//
+
         if(newMessage.content.includes('🖕')){
             newMessage.delete()
         }
+
+        //====================================//
+
         if(newMessage.content.includes(':middle_finger:')){
             newMessage.delete()
         }
+
+        //====================================//
+
         if(newMessage.content.includes('卐')){
             newMessage.delete()
         }
@@ -62,13 +93,14 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
 })
 
 
+//=======================================================//
+
+
 //Liens bannis.
 client.on("message", async message => {
     if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')){
         if (message.content.includes('https://discord.gg/' || 'discordapp.com/invite/')) {
-            if (message.content.includes('https://discord.gg/EweFGVR','https://discord.gg/dpFb93r')) {
-
-            }
+            if (message.content.includes('https://discord.gg/EweFGVR','https://discord.gg/dpFb93r')) {}
             else {
                 message.delete()
             }
@@ -76,12 +108,15 @@ client.on("message", async message => {
 
     }
 })
+
+
+//=======================================================//
+
+
 client.on('messageUpdate', (oldMessage, newMessage) => {
     if (!newMessage.guild.member(newMessage.author).hasPermission('ADMINISTRATOR')){
         if(newMessage.content.includes('https://discord.gg/' || 'discordapp.com/invite/')){
-            if(newMessage.content.includes('https://discord.gg/EweFGVR','https://discord.gg/dpFb93r')){
-
-            }
+            if(newMessage.content.includes('https://discord.gg/EweFGVR','https://discord.gg/dpFb93r')) {}
             else {
                 newMessage.delete()
             }
@@ -89,10 +124,17 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
     }
 })
 
+
+
+//=======================================================//
+
+
+
 //Le salon mêmes.
 client.on("message", async message => {
-    if (message.channel.id === "593833705970073620") {
-        if (message.attachments.size > 0 || message.content.includes('https://','http://')) {}
+    if (message.channel.id === process.env.MEMES) {
+        var links = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gmi;
+        if (message.attachments.size > 0 || message.content.match(links)) {}
         else {
             setTimeout(function() {
                 message.delete();
@@ -102,8 +144,7 @@ client.on("message", async message => {
 })
 
 
-
-
+//=======================================================//
 
 
 fs.readdir('./commandes/', (error, f) => {
@@ -118,6 +159,8 @@ fs.readdir('./commandes/', (error, f) => {
         });
 });
 
+//=======================================================//
+
 fs.readdir('./events/', (error, f) => {
     if (error) { return console.error(error); }
         console.log(`${f.length} events chargés`);
@@ -128,5 +171,7 @@ fs.readdir('./events/', (error, f) => {
             client.on(event, events.bind(null, client));
         });
 });
+
+//=======================================================//
 
 client.login(process.env.TOKEN);

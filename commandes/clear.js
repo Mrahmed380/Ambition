@@ -6,22 +6,28 @@
 
 
 const Discord = require("discord.js");
-var name = "clear";
-var res = name.toLowerCase();
+
+
+
+//=======================================================//
+
 
 
 module.exports.run = async (client, message, args) => {
 
 	message.delete()
 
+    //=======================================================//
 
     if (!message.guild.member(message.author).hasPermission('MANAGE_MESSAGES')) 
     	{
             const s1 = new Discord.RichEmbed()
                 .setColor('#ff0000')
-                .setTitle(':no_entry_sign: |  Vous n\'avez pas les permissions pour utiliser cette commande !')
+                .setTitle(':no_entry_sign: |  Vous n\'avez pas les permissions requises pour utiliser cette commande !')
             return message.channel.send(s1).then(msg => msg.delete(5000)); 
         }
+
+    //=======================================================//
 
     if (args[0] === '0')
         {
@@ -31,6 +37,8 @@ module.exports.run = async (client, message, args) => {
             return message.channel.send(s2).then(msg => msg.delete(5000)); 
         }
 
+    //=======================================================//
+
     if (args[0] > 100)
         {
             const s3 = new Discord.RichEmbed()
@@ -39,28 +47,34 @@ module.exports.run = async (client, message, args) => {
             return message.channel.send(s3).then(msg => msg.delete(5000)); 
         }
 
+    //=======================================================//
+
     if (!args[0]) 
         {   
             const filter = m => m.author.id === message.author.id;
             const s4 = new Discord.RichEmbed()
                 .setColor('#ffa500')
-                .setTitle(':question: |  Combien de message voulez-vous supprimer ? Vous pouvez faire `stop` pour annulé la commande.')
+                .setTitle(':question: |  Combien de message voulez-vous supprimer ? Vous pouvez envoyer `stop` pour annuler la commande.')
             message.channel.send(s4)
             message.channel.awaitMessages(filter, {
                 max: 1,
                 time: 60000
             }).then(collected => {
-
-
                 collected.delete(65000);
+
+                //======================================//
+
+
                 if (collected.first().content.toLowerCase() === 'stop') 
                     {
                         message.channel.bulkDelete('2')
                         const stop = new Discord.RichEmbed()
                             .setColor('#ff0000')
-                            .setTitle(':x: |  La commandes a était annulé !')
+                            .setTitle(':x: |  La commande a été annulée !')
                         return message.channel.send(stop).then(msg => msg.delete(5000));
                     }
+
+                //======================================//
 
                 if (collected.first().content === '0')
                     { 
@@ -71,6 +85,7 @@ module.exports.run = async (client, message, args) => {
                         return message.channel.send(s5).then(msg => msg.delete(5000)); 
                     }
 
+                //======================================//
 
                 if (collected.first().content > 100)
                     { 
@@ -81,6 +96,8 @@ module.exports.run = async (client, message, args) => {
                         return message.channel.send(s6).then(msg => msg.delete(5000)); 
                     }
 
+                //======================================//
+
                 if (collected.first().content > 0)
                     {
                         let nbr1 = collected.first().content;
@@ -88,6 +105,9 @@ module.exports.run = async (client, message, args) => {
                         setTimeout(async function() {
                             await message.channel.bulkDelete(nbr1)
                             .then((messages) => {
+
+                            //======================================//
+
                             if (collected.first().content === '1')
                                 {
                                     const f1 = new Discord.RichEmbed()
@@ -102,6 +122,9 @@ module.exports.run = async (client, message, args) => {
                                         .setTitle(`:white_check_mark: |  **${messages.size}** messages ont été supprimés !`)
                                     message.channel.send(f2).then(msg => msg.delete(5000)); 
                                 }
+
+                            //======================================//
+
                             })
                         }, 900)    
                     }
@@ -114,6 +137,8 @@ module.exports.run = async (client, message, args) => {
                         return message.channel.send(s7).then(msg => msg.delete(5000)); 
                     }
 
+                //======================================//
+
 
             }).catch(err => {
                 message.channel.bulkDelete('1')
@@ -123,6 +148,9 @@ module.exports.run = async (client, message, args) => {
                 message.channel.send(s7).then(r => r.delete(5000));
             });
         }
+
+
+        //=======================================================//
 
 
         const delay = ms => new Promise(res => setTimeout(res, ms));
@@ -144,16 +172,20 @@ module.exports.run = async (client, message, args) => {
                         .setColor('#32cd32')
                         .setTitle(`:white_check_mark: |  **${messages.size}** messages ont été supprimés !`)
                     message.channel.send(f2).then(msg => msg.delete(5000)); 
-                }
+                };
         })
-          
+
 };
 
 
 
+//=======================================================//
 
+
+
+var name = 'clear';
+var ui = name.toLowerCase();
 
 module.exports.help = {
-
     name: name,
 };

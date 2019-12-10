@@ -6,15 +6,18 @@
 
 
 const Discord = require("discord.js");
-var name = "test";
-var res = name.toLowerCase();
 
+
+
+//=======================================================//
 
 
 
 module.exports.run = async (client, message, args) => {
 
 	message.delete()
+
+    //=======================================================//
 
 	if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')) 
     	{
@@ -24,11 +27,14 @@ module.exports.run = async (client, message, args) => {
             return message.channel.send(s1).then(msg => msg.delete(5000));
         }
 
+    //=======================================================//
+
     const test = new Discord.RichEmbed()
         .setColor('#32cd32')
         .setTitle(':white_check_mark: |  Ui.')
     message.channel.send(test).then(msg => msg.delete(5000))
 
+    //=======================================================//
 
 	.catch(err => {
 		const erreur = new Discord.RichEmbed()
@@ -40,7 +46,11 @@ module.exports.run = async (client, message, args) => {
 };
 
 
+//=======================================================//
 
+
+var name = "test";
+var ui = name.toLowerCase();
 
 module.exports.help = {
     name: name,
