@@ -80,5 +80,5 @@ var name = "y";
 var def = name.toLowerCase();
 
 module.exports.help = {
-    name: name,
+    name: def,
 };

@@ -87,8 +87,8 @@ module.exports.run = async (client, message, args) => {
 
 
 var name = "say";
-var ui = name.toLowerCase();
+var def = name.toLowerCase();
 
 module.exports.help = {
-    name: name,
+    name: def,
 };
