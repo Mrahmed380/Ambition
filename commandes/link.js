@@ -1,5 +1,5 @@
 /*
- * @commande: help
+ * @commande: link
  * @Auteur: Koldran
  * @license Palindrome
  */
@@ -21,7 +21,7 @@ module.exports.run = async (client, message, args) => {
 
     const envoyé = new Discord.RichEmbed()
         .setColor('#32cd32')
-        .setTitle(':white_check_mark: |  Je vous ai envoyé les commandes en privé ! Si ceux-ci ne sont pas bloqués, bien sûr.')
+        .setTitle(':white_check_mark: |  Je vous ai envoyé le lien d\'invitation de Palindrome ! Regardez dans vos messages privés, si ceux-ci ne sont pas bloqués bien sûr.')
 
     const delay = ms => new Promise(res => setTimeout(res, ms));
     await delay(700);
@@ -40,7 +40,7 @@ module.exports.run = async (client, message, args) => {
     //=======================================================//
 
     setTimeout(function() {
-        message.author.send(`\`\`\`diff\n- Voici quelque commandes utiles:\n\`\`\`\n\n\n\n> **clear :**\n - Suprimme un nombre de message demandé.\nExemple : \`=clear {nombre}\`\n\n\n> **help :**\n - Vous donne les commandes.\n\n\n> **ping :**\n - Test la connexion de l'hébergeur.\n\n\n> **say :**\n - Fait dire au bot ce que vous voulez.\n\n\n> **infos :**\n - Donne des infos sur le serveur.\n\n\n> **link :**\n - Vous donne le lien du serveur.\n\n\n> **staff :**\n - Vous donne le lien du serveur staff.\n\n\n> **y :**\n - Alors... Oui, mais en fait non.\n\n\n\n\n${message.author} !`)
+        message.author.send(`\`\`\`Voici le lien d'invitation du serveur discord :\`\`\`\n●    **https://discord.gg/EweFGVR**   ●\n                 ●     **EweFGVR**     ●\n\n${message.author} !`)
         .catch(err => {
             const erreur = new Discord.RichEmbed()
                 .setColor('#ff0000')
@@ -56,7 +56,7 @@ module.exports.run = async (client, message, args) => {
 //=======================================================//
 
 
-var name = "help";
+var name = "link";
 var def = name.toLowerCase();
 
 module.exports.help = {

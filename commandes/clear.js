@@ -103,7 +103,7 @@ module.exports.run = async (client, message, args) => {
                         let nbr1 = collected.first().content;
                         message.channel.bulkDelete('2')
                         setTimeout(async function() {
-                            await message.channel.bulkDelete(nbr1)
+                            message.channel.bulkDelete(nbr1)
                             .then((messages) => {
 
                             //======================================//

@@ -1,5 +1,5 @@
 /*
- * @commande: help
+ * @commande: rules
  * @Auteur: Koldran
  * @license Palindrome
  */
@@ -21,7 +21,7 @@ module.exports.run = async (client, message, args) => {
 
     const envoyé = new Discord.RichEmbed()
         .setColor('#32cd32')
-        .setTitle(':white_check_mark: |  Je vous ai envoyé les commandes en privé ! Si ceux-ci ne sont pas bloqués, bien sûr.')
+        .setTitle(':white_check_mark: |  Je vous ai envoyé un exemplaire du règlement de Palindrome, prenez-en soin ! Regardez dans vos messages privés, si ceux-ci ne sont pas bloqués bien sûr.')
 
     const delay = ms => new Promise(res => setTimeout(res, ms));
     await delay(700);
@@ -40,7 +40,7 @@ module.exports.run = async (client, message, args) => {
     //=======================================================//
 
     setTimeout(function() {
-        message.author.send(`\`\`\`diff\n- Voici quelque commandes utiles:\n\`\`\`\n\n\n\n> **clear :**\n - Suprimme un nombre de message demandé.\nExemple : \`=clear {nombre}\`\n\n\n> **help :**\n - Vous donne les commandes.\n\n\n> **ping :**\n - Test la connexion de l'hébergeur.\n\n\n> **say :**\n - Fait dire au bot ce que vous voulez.\n\n\n> **infos :**\n - Donne des infos sur le serveur.\n\n\n> **link :**\n - Vous donne le lien du serveur.\n\n\n> **staff :**\n - Vous donne le lien du serveur staff.\n\n\n> **y :**\n - Alors... Oui, mais en fait non.\n\n\n\n\n${message.author} !`)
+        message.author.send(`__**Le règlement du serveur : Lisez bordel !**__\n\n\n\n\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n> **● Ne pas spam, insulter, être immature, faire de la pub, inviter des doubles comptes... Enfin tout ce qui fait de vous des personnes aimables et bien éduqué qui ferons, ou qui on fait, le bonheur de leurs parents.** :scoff:\n\n> **● Par malheur !!! Respectez au maximum les descriptions de chaque salon, pour la compréhension de toutes et tous... Faut le faire bordel ! C'est moins dur que Sekiro.**\n\n> **● Ce serveur a pour but d'être sobre et simpliste, alors ne le dégueulassez pas en postant du NSFW ou tout autre crasse nuisible, on n'est pas des animaux ici !!**\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n\n\n\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n\`\`\`diff\n- Ceci n'est qu'un rappelle du règlement, que normalement vous avez lu avant de rejoindre le serveur. Bande de vilains garnements !\n\`\`\`▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n\n\n${message.author} !`)
         .catch(err => {
             const erreur = new Discord.RichEmbed()
                 .setColor('#ff0000')
@@ -56,7 +56,7 @@ module.exports.run = async (client, message, args) => {
 //=======================================================//
 
 
-var name = "help";
+var name = "rules";
 var def = name.toLowerCase();
 
 module.exports.help = {
