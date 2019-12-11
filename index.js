@@ -30,8 +30,125 @@ client.on('guildMemberAdd', member => {
 
 //=======================================================//
 
+//Messsage supprimé.
+client.on('messageDelete', message => {
+    if (message.channel.type == 'text') {
+        var logger = message.guild.channels.get(process.env.LOGS);
+        if(message.author.id != client.user.id) {
+            if (logger) {
+                const embed = new Discord.RichEmbed()
+                  .setTitle('**Message supprimé:**')
+                  .setColor('0x00AAFF')
+                  .setFooter(message.author.username, message.author.avatarURL)
+                  .setDescription(message.cleanContent)
+                  .setTimestamp()
+                logger.send({ embed });
+            }
+        }
+    }
+});
 
+//Message modifié.
+client.on('messageUpdate', function(oldMessage, newMessage) {
+    if (newMessage.channel.type == 'text' && newMessage.cleanContent != oldMessage.cleanContent) {
+        var logger = newMessage.guild.channels.get(process.env.LOGS);
+        if(newMessage.author.id != client.user.id) {
+            if (logger != null) {
+                const embed = new Discord.RichEmbed()
+                  .setTitle('**Message modifié:**')
+                  .setColor('0x00AAFF')
+                  .setDescription('**- Avant modification:**\n' + oldMessage.cleanContent + '\n\n**- Après modification:**\n' + newMessage.cleanContent)
+                  .setFooter(newMessage.author.username, newMessage.author.avatarURL)
+                  .setTimestamp()
+                logger.send({ embed });
+            }
+        }
+    }
+});
 
+//Membre bannis.
+client.on('guildBanAdd', function(guild, user,) {
+    var logger = guild.channels.get(process.env.LOGS);
+    if(user.id != client.user.id) {
+        if (logger != null) {
+            const embed = new Discord.RichEmbed()
+                  .setTitle('**Membre bannis:**')
+                  .setColor('0x00AAFF')
+                  .setDescription(user + ' **a été bannis.**')
+                  .setFooter(user.username, user.avatarURL)
+                  .setTimestamp()
+                logger.send({ embed });
+        }
+    }
+});
+
+//membre débannis.
+client.on('guildBanRemove', function(guild, user) {
+    var logger = guild.channels.get(process.env.LOGS);
+    if(user.id != client.user.id) {
+        if (logger != null) {
+            const embed = new Discord.RichEmbed()
+                .setTitle('**Bannisement révoqué:**')
+                .setColor('0x00AAFF')
+                .setDescription('**Le bannissement de **' + user + ' **a été révoqué.**')
+                .setFooter(user.username, user.avatarURL)
+                .setTimestamp()
+            logger.send({ embed });
+        }
+    }
+});
+
+//Membre rejoin.
+client.on('guildMemberAdd', function(guild, user) {
+    var logger = guild.channels.get(process.env.LOGS);
+    if(user.id != client.user.id) {
+        if (logger != null){
+            const embed = new Discord.RichEmbed()
+                .setTitle('**Un membre a rejoin:**')
+                .setColor('0x00AAFF')
+                .setDescription(user + ' **a rejoin le serveur.**')
+                .setFooter(user.username, user.avatarURL)
+                .setTimestamp()
+            logger.send({ embed });
+        }
+    }
+});
+
+//Membre quitté.
+client.on('guildMemberRemove', function(guild, user) {
+    var logger = guild.channels.get(process.env.LOGS);
+    if(user.id != client.user.id) {
+        if (logger != null){
+            const embed = new Discord.RichEmbed()
+                .setTitle('**Un membre a quitté:**')
+                .setColor('0x00AAFF')
+                .setDescription(user + ' **a quitté le serveur.**')
+                .setFooter(user.username, user.avatarURL)
+                .setTimestamp()
+            logger.send({ embed });
+        }
+    }
+});
+
+//Surnom changé.
+client.on('guildMemberUpdate', (oldMember, newMember) => {
+    var logger = newMember.guild.channels.get(process.env.LOGS);
+    if(newMember.id != client.user.id) {
+        if(newMember.nickname != oldMember.nickname) {
+            if (logger != null){
+                const embed = new Discord.RichEmbed()
+                  .setTitle('**Surnom modifié:**')
+                  .setColor('0x00AAFF')
+                  .setDescription('**Le surnom de** ' + oldMember.user.username + '#' + oldMember.user.discriminator + ' **a été changé en** ' + newMember.nickname + '.')
+                  .setFooter(newMember.user.username, newMember.user.avatarURL)
+                  .setTimestamp()
+                logger.send({ embed });
+            }
+        }
+    }
+});
+
+//=======================================================//
 
 //Mots bannis.
 client.on("message", async message => {
