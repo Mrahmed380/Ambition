@@ -22,7 +22,7 @@ module.exports.run = async (client, message, args) => {
     let début = Date.now();
 
     const delay = ms => new Promise(res => setTimeout(res, ms));
-    await delay(700);
+    await delay(500);
 
     //=======================================================//
 

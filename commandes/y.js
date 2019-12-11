@@ -51,7 +51,7 @@ module.exports.run = async (client, message, args) => {
 
 	var temps = 15000;
 	const delay = ms => new Promise(res => setTimeout(res, ms));
-    await delay(700);
+    await delay(500);
 
     //=======================================================//
 

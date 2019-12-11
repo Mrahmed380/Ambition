@@ -126,7 +126,7 @@ module.exports.run = async (client, message, args) => {
                             //======================================//
 
                             })
-                        }, 700)    
+                        }, 500)    
                     }
                 else
                     {
@@ -154,7 +154,7 @@ module.exports.run = async (client, message, args) => {
 
 
         const delay = ms => new Promise(res => setTimeout(res, ms));
-        await delay(700);
+        await delay(500);
 
 
         await message.channel.bulkDelete(args[0])

@@ -24,7 +24,7 @@ module.exports.run = async (client, message, args) => {
         .setTitle(':white_check_mark: |  Je vous ai envoyé un exemplaire du règlement de Palindrome, prenez-en soin ! Regardez dans vos messages privés, si ceux-ci ne sont pas bloqués bien sûr.')
 
     const delay = ms => new Promise(res => setTimeout(res, ms));
-    await delay(700);
+    await delay(500);
 
     //=======================================================//
 
