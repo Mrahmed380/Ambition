@@ -35,6 +35,9 @@ const words = [
 	":page_with_curl: |  Si tu es une fleur, il est important de réclamer de l'eau.",
 	":page_with_curl: |  Si tu te tapes le petit doigt de pied contre un meuble, fait un rituelle satanique avec celui-ci.",
 	":page_with_curl: |  Si ta connexion veut des fruits, surtout tape ta box contre un frigo. La connexion ira deux fois plus vite.",
+	":page_with_curl: |  Je n'aime pas Noël, mais ne t'en fais pas, je ne t'aime pas non plus, mon doux petit sucre.",
+	":page_with_curl: |  Si dans ta vie, tu as un coup de moue, n'oublie pas que ce n'est pas TOI QUI D'DÉCIDES!!!",
+	":page_with_curl: |  Si tu a un caillou dans ta chaussure... Bah, je sais pas, mange le..",
 ]
 
 
@@ -62,7 +65,10 @@ module.exports.run = async (client, message, args) => {
 		message.channel.send(s1).then(msg => msg.delete(2000));
 	}
 	else {
-		message.channel.send(words[Math.floor(Math.random() * words.length)]).then(msg => msg.delete(30000));
+		const s2 = new Discord.RichEmbed()
+            .setColor('#ffa500')
+            .setTitle(words[Math.floor(Math.random() * words.length)])
+		message.channel.send(s2).then(msg => msg.delete(30000));
 
 		cooldown.add(message.author.id);
 		setTimeout(() => {
