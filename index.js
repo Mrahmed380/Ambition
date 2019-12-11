@@ -30,24 +30,6 @@ client.on('guildMemberAdd', member => {
 
 //=======================================================//
 
-//Messsage supprimé.
-client.on('messageDelete', message => {
-    if (message.channel.type == 'text') {
-        var logger = message.guild.channels.get(process.env.LOGS);
-        if(message.author.id != client.user.id) {
-            if (logger) {
-                const embed = new Discord.RichEmbed()
-                  .setTitle('**Message supprimé:**')
-                  .setColor('0x00AAFF')
-                  .setFooter(message.author.username, message.author.avatarURL)
-                  .setDescription(message.cleanContent)
-                  .setTimestamp()
-                logger.send({ embed });
-            }
-        }
-    }
-});
-
 //Message modifié.
 client.on('messageUpdate', function(oldMessage, newMessage) {
     if (newMessage.channel.type == 'text' && newMessage.cleanContent != oldMessage.cleanContent) {
