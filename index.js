@@ -30,24 +30,6 @@ client.on('guildMemberAdd', member => {
 
 //=======================================================//
 
-//Message modifié.
-client.on('messageUpdate', function(oldMessage, newMessage) {
-    if (newMessage.channel.type == 'text' && newMessage.cleanContent != oldMessage.cleanContent) {
-        var logger = newMessage.guild.channels.get(process.env.LOGS);
-        if(newMessage.author.id != client.user.id) {
-            if (logger != null) {
-                const embed = new Discord.RichEmbed()
-                  .setTitle('**Message modifié:**')
-                  .setColor('0x00AAFF')
-                  .setDescription('**- Avant modification:**\n' + oldMessage.cleanContent + '\n\n**- Après modification:**\n' + newMessage.cleanContent)
-                  .setFooter(newMessage.author.username, newMessage.author.avatarURL)
-                  .setTimestamp()
-                logger.send({ embed });
-            }
-        }
-    }
-});
-
 //Membre bannis.
 client.on('guildBanAdd', function(guild, user,) {
     var logger = guild.channels.get(process.env.LOGS);
@@ -231,7 +213,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
 
 //Le salon mêmes.
 client.on("message", async message => {
-    if (message.channel.id === process.env.MEMES) {
+    if (message.channel.id === (process.env.MEMES)) {
         if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')){
             var links = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gmi;
             if (message.attachments.size > 0 || message.content.match(links)) {}
@@ -256,7 +238,7 @@ fs.readdir('./commandes/', (error, f) => {
         commandes.forEach((f) => {
             let commande = require(`./commandes/${f}`);
             console.log(`${f} commande chargée !`);
-            client.commands.set(commande.help.name, commande);
+            client.commands.set(commande.help.name.toLowerCase(), commande);
         });
 });
 
