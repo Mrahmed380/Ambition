@@ -197,6 +197,10 @@ client.on("message", async message => {
                     message.delete();
                 }, 500);
             }
+            if (message.content.includes('https://discord.gg/' || 'discordapp.com/invite/')) {
+                if (message.content.includes('https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r')) { }
+                else { message.delete(); }
+            }
         }
     }
 });
