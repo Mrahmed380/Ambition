@@ -111,37 +111,36 @@ module.exports.run = async (client, message, args) => {
           {
             let nbr1 = collected.first().content;
             await message.channel.bulkDelete('2');
-            setTimeout(async function() {
-              message.channel.bulkDelete(nbr1)
-              .then((messages) => {
+            
+            message.channel.bulkDelete(nbr1)
+            .then((messages) => {
 
 
-                //=======================================//
+              //=======================================//
 
 
-                if (collected.first().content === '1')
-                  {
-                    const f1 = new Discord.RichEmbed()
-                        .setColor('#32cd32')
-                        .setTitle(`:white_check_mark: |  **${messages.size}** message à été supprimé !`)
-                    message.channel.send(f1).then(msg => msg.delete(5000));
-                  }
+              if (collected.first().content === '1')
+                {
+                  const f1 = new Discord.RichEmbed()
+                      .setColor('#32cd32')
+                      .setTitle(`:white_check_mark: |  **${messages.size}** message à été supprimé !`)
+                  message.channel.send(f1).then(msg => msg.delete(5000));
+                }
 
 
-                else
-                  {
-                    const f2 = new Discord.RichEmbed()
-                        .setColor('#32cd32')
-                        .setTitle(`:white_check_mark: |  **${messages.size}** messages ont été supprimés !`)
-                    message.channel.send(f2).then(msg => msg.delete(5000));
-                  }
+              else
+                {
+                  const f2 = new Discord.RichEmbed()
+                      .setColor('#32cd32')
+                      .setTitle(`:white_check_mark: |  **${messages.size}** messages ont été supprimés !`)
+                  message.channel.send(f2).then(msg => msg.delete(5000));
+                }
 
 
-                //=======================================//
+              //=======================================//
 
 
-              })
-            }, 500)
+            })
           }
 
 
