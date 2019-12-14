@@ -68,7 +68,34 @@ module.exports.run = async (client, message, args) => {
 
 
   setTimeout(function() {
-    message.author.send(`\`\`\`diff\n- Voici quelque commandes utiles:\n\`\`\`\n\n\n\n> **clear :**\n - Suprimme un nombre de message demandé.\nExemple : \`=clear {nombre}\`\n\n\n> **help :**\n - Vous donne les commandes.\n\n\n> **ping :**\n - Test la connexion de l'hébergeur.\n\n\n> **say :**\n - Fait dire au bot ce que vous voulez.\n\n\n> **infos :**\n - Donne des infos sur le serveur.\n\n\n> **link :**\n - Vous donne le lien du serveur.\n\n\n> **staff :**\n - Vous donne le lien du serveur staff.\n\n\n> **rules :**\n - Vous donne le règlement du serveur.\n\n\n> **y :**\n - Alors... Oui, mais en fait non.\n\n\n\n\n${message.author} !`)
+    const e1 = new Discord.RichEmbed()
+      .setColor('#32cd32')
+      .setTitle(`**Voici toutes les commandes que je propose:**`)
+      .setDescription(`
+      - help:
+      Vous donne accés au différentes commandes que je possède.
+
+      - infos:
+      Vous donne quelque infos consernant le serveur.
+
+      - link:
+      Vous donne le lien d'invitation du serveur.
+
+      - ping:
+      Vous donne le nombre de ms qu'a le bot.
+
+      - rules:
+      Vous donnes le règlement du serveur.
+
+      - staff:
+      Vous donne le lien d'invitation du serveur staff.
+
+      - y:
+      Vous envoi de jolie et doux mots.
+    `)
+
+      
+    message.author.send(e1)
     .catch(err => {
       const erreur = new Discord.RichEmbed()
           .setColor('#ff0000')
