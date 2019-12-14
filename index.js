@@ -125,7 +125,6 @@ client.on('guildMemberUpdate', function (oldMember, newMember) {
 client.on('guildMemberAdd', (member) => {
     var nom = member.user;
     var avatar = member.user.avatarURL;
-    if (message.author.bot) return;
     member.guild.channels.get(process.env.WELCOM).send(`**\`\`\`Une nouvelle personne à rejoins le serveur.\`\`\`**\n***Bienvenue à toi ${nom} !***\n\n●      **${avatar}**      ●`)
 });
 
