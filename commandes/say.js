@@ -10,7 +10,7 @@ const Discord = require("discord.js");
 
 
 module.exports.run = async (client, message, args) => {
-	message.delete();
+	await message.delete();
 
 
   //=======================================//
@@ -50,7 +50,7 @@ module.exports.run = async (client, message, args) => {
       message.channel.awaitMessages(filter, {
         max: 1,
         time: 60000,
-      }).then(collected => {
+      }).then(async collected => {
       	collected.delete(65000);
 
 
@@ -59,7 +59,7 @@ module.exports.run = async (client, message, args) => {
 
         if (collected.first().content.toLowerCase() === 'stop')
           {
-            message.channel.bulkDelete('2');
+            await message.channel.bulkDelete('2');
             const stop = new Discord.RichEmbed()
                 .setColor('#ff0000')
                 .setTitle(':x: |  La commande a été annulée !')
@@ -70,7 +70,7 @@ module.exports.run = async (client, message, args) => {
         //=======================================//
 
 
-        message.channel.bulkDelete('2');
+        await message.channel.bulkDelete('2');
         message.channel.send(collected.first().content)
 
 
@@ -89,7 +89,7 @@ module.exports.run = async (client, message, args) => {
   //=======================================//
 
 
-  message.channel.send(message.content.slice(5, message.content.length));
+  await message.channel.send(message.content.slice(5, message.content.length));
 };
 
 

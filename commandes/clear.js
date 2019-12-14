@@ -10,7 +10,7 @@ const Discord = require("discord.js");
 
 
 module.exports.run = async (client, message, args) => {
-	message.delete();
+	await message.delete();
 
 
 	//=======================================//
@@ -61,7 +61,7 @@ module.exports.run = async (client, message, args) => {
       message.channel.awaitMessages(filter, {
         max: 1,
         time: 60000
-      }).then(collected => {
+      }).then(async collected => {
         collected.delete(65000);
 
 
@@ -70,7 +70,7 @@ module.exports.run = async (client, message, args) => {
 
         if (collected.first().content.toLowerCase() === 'stop')
           {
-            message.channel.bulkDelete('2')
+            await message.channel.bulkDelete('2')
             const stop = new Discord.RichEmbed()
                 .setColor('#ff0000')
                 .setTitle(':x: |  La commande a été annulée !')
@@ -83,7 +83,7 @@ module.exports.run = async (client, message, args) => {
 
         if (collected.first().content === '0')
           {
-            message.channel.bulkDelete('2')
+            await message.channel.bulkDelete('2')
             const s5 = new Discord.RichEmbed()
                 .setColor('#ff0000')
                 .setTitle(':x: |  Vous devez spécifier un nombre de messages à supprimer, autre que **0** !')
@@ -96,7 +96,7 @@ module.exports.run = async (client, message, args) => {
 
         if (collected.first().content > 100)
           {
-            message.channel.bulkDelete('2');
+            await message.channel.bulkDelete('2');
             const s6 = new Discord.RichEmbed()
                 .setColor('#ff0000')
                 .setTitle(':x: |  Vous ne pouvez pas supprimer plus de **100** messages, car l\'API de discord ne le permet pas !')
@@ -110,7 +110,7 @@ module.exports.run = async (client, message, args) => {
         if (collected.first().content > 0)
           {
             let nbr1 = collected.first().content;
-            message.channel.bulkDelete('2');
+            await message.channel.bulkDelete('2');
             setTimeout(async function() {
               message.channel.bulkDelete(nbr1)
               .then((messages) => {
@@ -147,7 +147,7 @@ module.exports.run = async (client, message, args) => {
 
         else
         	{
-            message.channel.bulkDelete('2')
+            await message.channel.bulkDelete('2')
             const s7 = new Discord.RichEmbed()
                 .setColor('#ff0000')
                 .setTitle(':x: |  Vous devez spécifier un nombre de messages à supprimer !')
@@ -158,8 +158,8 @@ module.exports.run = async (client, message, args) => {
         //=======================================//
 
 
-        }).catch(err => {
-          message.channel.bulkDelete('1')
+        }).catch(async err => {
+          await message.channel.bulkDelete('1')
           const s7 = new Discord.RichEmbed()
               .setColor('#ff0000')
               .setTitle(':x: |  60 secondes se sont écoulées. Vous avez prit trop de temps pour répondre !')

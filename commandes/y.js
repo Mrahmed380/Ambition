@@ -45,7 +45,7 @@ const words = [
 
 
 module.exports.run = async (client, message, args) => {
-	message.delete();
+	await message.delete();
 
 
 	//=======================================//
