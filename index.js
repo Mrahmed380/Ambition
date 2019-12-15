@@ -47,6 +47,7 @@ client.on('guildMemberAdd', (member) => {
 
 
 client.on("message", (message) => {
+    if (message.author.bot) return;
     if (!message.member.hasPermission("ADMINISTRATOR")) {
         if (message.content.includes("☭" || "🖕" || ":middle_finger:" || "卐")) {
             message.delete();
@@ -56,6 +57,7 @@ client.on("message", (message) => {
 
 
 client.on('messageUpdate', function (oldMessage, newMessage) {
+    if (newMessage.author.bot) return;
     if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
         if (newMessage.content.includes("☭" || "🖕" || ":middle_finger:" || "卐")) {
             newMessage.delete();
