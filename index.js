@@ -27,12 +27,12 @@ client.on('ready', function () {
 
 /*Message bienvenue*/
 client.on('guildMemberAdd', (member) => {
-    var serveur = process.env.SERVEUR;
+    var serveur = "501824700486516766";
     var nom = member.user;
     var avatar = member.user.avatarURL;
     if (avatar === null) { avatar = 'Pas de photo de profil' }
     if (member.guild.id = serveur) {
-        member.guild.channels.get(process.env.WELCOM).send(`**\`\`\`Une nouvelle personne à rejoins le serveur.\`\`\`**\n***Bienvenue à toi ${nom} !***\n\n●      **${avatar}**      ●`)
+        member.guild.channels.get("583414864677175306").send(`**\`\`\`Une nouvelle personne à rejoins le serveur.\`\`\`**\n***Bienvenue à toi ${nom} !***\n\n●      **${avatar}**      ●`)
     }
 });
 
