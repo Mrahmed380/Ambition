@@ -25,107 +25,22 @@ client.on('ready', function () {
 
 //=======================================//
 
-
-/*Log membre bannis*/
-client.on('guildBanAdd', function (guild, user) {
-    if (message.author.bot) return;
-    var logger = guild.channels.get(process.env.LOGS);
-    if (user.id != client.user.id) {
-        if (logger != null) {
-            const embed = new Discord.RichEmbed()
-                .setTitle('**Membre bannis:**')
-                .setColor('0x00AAFF')
-                .setDescription(user + ' **a été bannis.**')
-                .setFooter(user.username, user.avatarURL)
-                .setTimestamp()
-            logger.send({ embed });
-        }
-    }
-});
-
-
-/*Log membre débannis*/
-client.on('guildBanRemove', function (guild, user) {
-    if (message.author.bot) return;
-    var logger = guild.channels.get(process.env.LOGS);
-    if (user.id != client.user.id) {
-        if (logger != null) {
-            const embed = new Discord.RichEmbed()
-                .setTitle('**Bannisement révoqué:**')
-                .setColor('0x00AAFF')
-                .setDescription('**Le bannissement de **' + user + ' **a été révoqué.**')
-                .setFooter(user.username, user.avatarURL)
-                .setTimestamp()
-            logger.send({ embed });
-        }
-    }
-});
-
-
-/*Log membre rejoins*/
-client.on('guildMemberAdd', function (guild, user) {
-    if (message.author.bot) return;
-    var logger = guild.channels.get(process.env.LOGS);
-    if (user.id != client.user.id) {
-        if (logger != null) {
-            const embed = new Discord.RichEmbed()
-                .setTitle('**Un membre a rejoin:**')
-                .setColor('0x00AAFF')
-                .setDescription(user + ' **a rejoin le serveur.**')
-                .setFooter(user.username, user.avatarURL)
-                .setTimestamp()
-            logger.send({ embed });
-        }
-    }
-});
-
-
-/*Log membre quitté*/
-client.on('guildMemberRemove', function (guild, user) {
-    if (message.author.bot) return;
-    var logger = guild.channels.get(process.env.LOGS);
-    if (user.id != client.user.id) {
-        if (logger != null) {
-            const embed = new Discord.RichEmbed()
-                .setTitle('**Un membre a quitté:**')
-                .setColor('0x00AAFF')
-                .setDescription(user + ' **a quitté le serveur.**')
-                .setFooter(user.username, user.avatarURL)
-                .setTimestamp()
-            logger.send({ embed });
-        }
-    }
-});
-
-
-/*Log surnom changé*/
-client.on('guildMemberUpdate', function (oldMember, newMember) {
-    if (message.author.bot) return;
-    var logger = newMember.guild.channels.get(process.env.LOGS);
-    if (newMember.id != client.user.id) {
-        if (newMember.nickname != oldMember.nickname) {
-            if (logger != null) {
-                const embed = new Discord.RichEmbed()
-                    .setTitle('**Surnom modifié:**')
-                    .setColor('0x00AAFF')
-                    .setDescription('**Le surnom de** ' + oldMember.user.username + '#' + oldMember.user.discriminator + ' **a été changé en** ' + newMember.nickname + '.')
-                    .setFooter(newMember.user.username, newMember.user.avatarURL)
-                    .setTimestamp()
-                logger.send({ embed });
-            }
-        }
-    }
-});
-
-
-//=======================================//
-
-
 /*Message bienvenue*/
 client.on('guildMemberAdd', (member) => {
+    var serveur = process.env.SERVEUR;
     var nom = member.user;
     var avatar = member.user.avatarURL;
-    member.guild.channels.get(process.env.WELCOM).send(`**\`\`\`Une nouvelle personne à rejoins le serveur.\`\`\`**\n***Bienvenue à toi ${nom} !***\n\n●      **${avatar}**      ●`)
+    if (avatar === null) { avatar = 'Pas de photo de profil' }
+    if (member.guild.id = serveur) {
+        member.guild.channels.get(process.env.WELCOM).send(`**\`\`\`Une nouvelle personne à rejoins le serveur.\`\`\`**\n***Bienvenue à toi ${nom} !***\n\n●      **${avatar}**      ●`)
+    }
+});
+
+client.on('guildMemberAdd', (member) => {
+    var serveur = process.env.STAFF;
+    if (member.guild.id = serveur) {
+        member.send(`C'est ici que vous pourrez faire vos demandes, dans le salon #●demandes●. Après votre demande, veuillez patienter, car nous ne sommes peut-être pas connectés ou non disponibles.\n**Veuillez présenter ça sous la forme suivante, pour la compréhension des membres du staff :**\n\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n\n\`\`\`Sujet de la demande, en gros qu'est-ce que c'est. (exemple, un rôle perdu ou une erreur du staff)\`\`\`\n- Mention du rôle modérateur ou administrateur.\n\n> - Votre nom sur le serveur, pour vous trouver plus facilement. (Veuillez utiliser (>>> votre message) pour faire l'encadrement)\n>  \n> - Une description simple de votre problème.\n>  \n> - Une demande objective de ce que vous voulez au final. (s'il y en à une bien sûr)\n\n${member.id}`)
+    }
 });
 
 
