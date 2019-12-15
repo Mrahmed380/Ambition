@@ -47,16 +47,14 @@ client.on('guildMemberAdd', (member) => {
 
 
 client.on("message", (message) => {
-    let listw = ["☭", "🖕", ":middle_finger:", "卐"]
-    if (message.content.includes(listw)) {
+    if (message.content.includes("☭", "🖕", ":middle_finger:", "卐")) {
         message.delete();
     }
 });
 
 
 client.on('messageUpdate', function (oldMessage, newMessage) {
-    let listw = ["☭", "🖕", ":middle_finger:", "卐"]
-    if (newMessage.content.includes(listw)) {
+    if (newMessage.content.includes("☭", "🖕", ":middle_finger:", "卐")) {
         message.delete();
     }
 });
