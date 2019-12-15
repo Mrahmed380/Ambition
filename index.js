@@ -56,9 +56,9 @@ client.on("message", (message) => {
 
 
 client.on('messageUpdate', function (oldMessage, newMessage) {
-    if (!message.member.hasPermission("ADMINISTRATOR")) {
+    if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
         if (newMessage.content.includes("☭", "🖕", ":middle_finger:", "卐")) {
-            message.delete();
+            newMessage.delete();
         }
     }
 });
