@@ -47,15 +47,19 @@ client.on('guildMemberAdd', (member) => {
 
 
 client.on("message", (message) => {
-    if (message.content.includes("☭", "🖕", ":middle_finger:", "卐")) {
-        message.delete();
+    if (!message.member.hasPermission("ADMINISTRATOR")) {
+        if (message.content.includes("☭", "🖕", ":middle_finger:", "卐")) {
+            message.delete();
+        }
     }
 });
 
 
 client.on('messageUpdate', function (oldMessage, newMessage) {
-    if (newMessage.content.includes("☭", "🖕", ":middle_finger:", "卐")) {
-        message.delete();
+    if (!message.member.hasPermission("ADMINISTRATOR")) {
+        if (newMessage.content.includes("☭", "🖕", ":middle_finger:", "卐")) {
+            message.delete();
+        }
     }
 });
 
