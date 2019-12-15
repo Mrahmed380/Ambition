@@ -38,7 +38,7 @@ client.on('guildMemberAdd', (member) => {
 });
 
 client.on('guildMemberAdd', (member) => {
-    var serveur = process.env.STAFF;
+    var serveur = process.env.SERVEURSTAFF;
     if (member.guild.id = serveur) {
         member.send(`C'est ici que vous pourrez faire vos demandes, dans le salon #●demandes●. Après votre demande, veuillez patienter, car nous ne sommes peut-être pas connectés ou non disponibles.\n**Veuillez présenter ça sous la forme suivante, pour la compréhension des membres du staff :**\n\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n\n\`\`\`Sujet de la demande, en gros qu'est-ce que c'est. (exemple, un rôle perdu ou une erreur du staff)\`\`\`\n- Mention du rôle modérateur ou administrateur.\n\n> - Votre nom sur le serveur, pour vous trouver plus facilement. (Veuillez utiliser (>>> votre message) pour faire l'encadrement)\n>  \n> - Une description simple de votre problème.\n>  \n> - Une demande objective de ce que vous voulez au final. (s'il y en à une bien sûr)\n\n${member}`)
     }
