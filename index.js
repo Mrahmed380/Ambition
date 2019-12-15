@@ -29,7 +29,7 @@ client.on('ready', function () {
 client.on('guildMemberAdd', (member) => {
     var nom = member.user;
     var avatar = member.user.avatarURL;
-    if (avatar === null) { avatar = 'Pas de photo de profil' }
+    if (avatar === null) { avatar = '' }
     if (member.guild.id = "501824700486516766") {
         member.guild.channels.get('534443162949910537').send(`**\`\`\`Une nouvelle personne à rejoins le serveur.\`\`\`**\n***Bienvenue à toi ${nom} !***\n\n●      **${avatar}**      ●`)
     }
@@ -56,9 +56,9 @@ client.on("message", (message) => {
 
 
 client.on('messageUpdate', function (oldMessage, newMessage) {
-    if (!message.member.hasPermission("ADMINISTRATOR")) {
+    if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
         if (newMessage.content.includes("☭" || "🖕" || ":middle_finger:" || "卐")) {
-            message.delete();
+            newMessage.delete();
         }
     }
 });
