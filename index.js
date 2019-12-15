@@ -48,20 +48,16 @@ client.on('guildMemberAdd', (member) => {
 
 client.on("message", (message) => {
     let listw = ["☭", "🖕", ":middle_finger:", "卐"]
-    if (!message.guild.members.get(message.author.id).hasPermission("ADMINISTRATOR")) {
-        if (message.content.includes(listw)) {
-            message.delete();
-        }
+    if (message.content.includes(listw)) {
+        message.delete();
     }
 });
 
 
 client.on('messageUpdate', function (oldMessage, newMessage) {
     let listw = ["☭", "🖕", ":middle_finger:", "卐"]
-    if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
-        if (newMessage.content.includes(listw)) {
-            message.delete();
-        }
+    if (newMessage.content.includes(listw)) {
+        message.delete();
     }
 });
 
