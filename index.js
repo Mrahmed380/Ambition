@@ -32,7 +32,7 @@ client.on('guildMemberAdd', (member) => {
     var avatar = member.user.avatarURL;
     if (avatar === null) { avatar = 'Pas de photo de profil' }
     if (member.guild.id === process.env.SERVEUR) {
-        member.guild.channels.get(`${process.env.WELCOM}`).send(`**\`\`\`Une nouvelle personne à rejoins le serveur.\`\`\`**\n***Bienvenue à toi ${nom} !***\n\n●      **${avatar}**      ●`)
+        member.guild.channels.get(process.env.WELCOM).send(`**\`\`\`Une nouvelle personne à rejoins le serveur.\`\`\`**\n***Bienvenue à toi ${nom} !***\n\n●      **${avatar}**      ●`)
     }
 });
 
