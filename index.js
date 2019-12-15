@@ -31,7 +31,7 @@ client.on('guildMemberAdd', (member) => {
     var avatar = member.user.avatarURL;
     if (avatar === null) { avatar = 'Pas de photo de profil' }
     if (member.guild.id = "501824700486516766") {
-        member.guild.channels.get('645024434947620884').send(`**\`\`\`Une nouvelle personne à rejoins le serveur.\`\`\`**\n***Bienvenue à toi ${nom} !***\n\n●      **${avatar}**      ●`)
+        member.guild.channels.get('534443162949910537').send(`**\`\`\`Une nouvelle personne à rejoins le serveur.\`\`\`**\n***Bienvenue à toi ${nom} !***\n\n●      **${avatar}**      ●`)
     }
 });
 
@@ -87,7 +87,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
 
 client.on("message", async message => {
     if (message.author.bot) return;
-    if (message.channel.id === "645024434947620884") {
+    if (message.channel.id === "593833705970073620") {
         if (!message.member.hasPermission('ADMINISTRATOR')) {
             var links = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gmi;
             if (message.attachments.size > 0 || message.content.match(links)) { }
