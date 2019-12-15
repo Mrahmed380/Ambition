@@ -74,7 +74,7 @@ client.on('messageUpdate', function (oldMessage, newMessage) {
 
 /*Invitations discord bannis*/
 client.on("message", (message) => {
-    if (!message.guild.member.get(message.author.id).hasPermission("ADMINISTRATOR")) {
+    if (!message.guild.members.get(message.author.id).hasPermission("ADMINISTRATOR")) {
         if (message.content.includes('https://discord.gg/' || 'discordapp.com/invite/')) {
             if (message.content.includes('https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r')) { }
             else { message.delete(); }
