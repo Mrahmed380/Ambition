@@ -74,7 +74,7 @@ client.on('messageUpdate', function (oldMessage, newMessage) {
 
 /*Invitations discord bannis*/
 client.on("message", (message) => {
-   if (!message.guild.members.get(message.author.id).hasPermission("ADMINISTRATOR")) {
+   if (message.member.hasPermission("ADMINISTRATOR")){
         if (message.content.includes('https://discord.gg/' || 'discordapp.com/invite/')) {
             if (message.content.includes('https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r')) { }
             else { message.delete(); }
@@ -84,7 +84,7 @@ client.on("message", (message) => {
 
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
-    if (!newMessage.guild.members.get(newMessage.author.id).hasPermission("ADMINISTRATOR")) {
+    if (newMessage.member.hasPermission("ADMINISTRATOR")){
         if (newMessage.content.includes('https://discord.gg/' || 'discordapp.com/invite/')) {
             if (newMessage.content.includes('https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r')) { }
             else { newMessage.delete(); }
