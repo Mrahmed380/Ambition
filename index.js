@@ -84,7 +84,7 @@ client.on("message", (message) => {
 
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
-    if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
+    if (!message.guild.members.get(message.author.id).hasPermission("ADMINISTRATOR")) {
         if (newMessage.content.includes('https://discord.gg/' || 'discordapp.com/invite/')) {
             if (newMessage.content.includes('https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r')) { }
             else { newMessage.delete(); }
