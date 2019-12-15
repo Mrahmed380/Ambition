@@ -46,17 +46,6 @@ client.on('guildMemberAdd', (member) => {
 //=======================================//
 
 
-client.on("message", (message) => {
-    let listw = ["☭", "🖕", ":middle_finger:", "卐"]
-    if (message.author.bot) return;
-    if (message.guild.members.get(message.author.id).hasPermission("ADMINISTRATOR")) {
-        if (message.content.includes(listw)) {
-            message.delete();
-        }
-    }
-});
-
-
 client.on('messageUpdate', function (oldMessage, newMessage) {
     let listw = ["☭", "🖕", ":middle_finger:", "卐"]
     if (newMessage.author.bot) return;
