@@ -146,7 +146,7 @@ module.exports.run = async (client, message, args) => {
 
         else
         	{
-            await message.channel.bulkDelete('2')
+            await message.channel.bulkDelete('2');
             const s7 = new Discord.RichEmbed()
                 .setColor('#ff0000')
                 .setTitle(':x: |  Vous devez spécifier un nombre de messages à supprimer !')
@@ -158,7 +158,7 @@ module.exports.run = async (client, message, args) => {
 
 
         }).catch(async err => {
-          await message.channel.bulkDelete('1')
+          await message.channel.bulkDelete('1');
           const s7 = new Discord.RichEmbed()
               .setColor('#ff0000')
               .setTitle(':x: |  60 secondes se sont écoulées. Vous avez prit trop de temps pour répondre !')
