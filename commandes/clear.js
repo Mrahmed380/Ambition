@@ -70,7 +70,7 @@ module.exports.run = async (client, message, args) => {
 
         if (collected.first().content.toLowerCase() === 'stop')
           {
-            await message.channel.bulkDelete('2')
+            await message.channel.bulkDelete('2');
             const stop = new Discord.RichEmbed()
                 .setColor('#ff0000')
                 .setTitle(':x: |  La commande a été annulée !')
@@ -83,7 +83,7 @@ module.exports.run = async (client, message, args) => {
 
         if (collected.first().content === '0')
           {
-            await message.channel.bulkDelete('2')
+            await message.channel.bulkDelete('2');
             const s5 = new Discord.RichEmbed()
                 .setColor('#ff0000')
                 .setTitle(':x: |  Vous devez spécifier un nombre de messages à supprimer, autre que **0** !')
