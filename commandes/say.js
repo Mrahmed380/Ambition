@@ -23,8 +23,8 @@ module.exports.run = async (client, message, args) => {
   //=======================================//
 
 
-	if (!message.guild.member(message.author).hasPermission('MANAGE_MESSAGES'))
-		{
+  if (!message.guild.member(message.author).hasPermission('MANAGE_MESSAGES'))
+    {
     	const s1 = new Discord.RichEmbed()
           .setColor('#ff0000')
           .setTitle(':no_entry_sign: |  Vous n\'avez pas les permissions requises pour utiliser cette commande !')
@@ -71,7 +71,7 @@ module.exports.run = async (client, message, args) => {
 
 
         await message.channel.bulkDelete('2');
-        message.channel.send(collected.first().content)
+        message.channel.send(collected.first().content);
 
 
         //=======================================//
@@ -83,7 +83,7 @@ module.exports.run = async (client, message, args) => {
               .setTitle(':x: |  **60** secondes se sont écoulées. Vous avez prit trop de temps pour répondre !')
           message.channel.send(erreur).then(r => r.delete(5000));
       	});
-		}
+	}
 
 
   //=======================================//
