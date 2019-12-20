@@ -30,10 +30,11 @@ client.on('guildMemberAdd', (member) => {
     var nom = member.user;
     var avatar = member.user.avatarURL;
     if (avatar === null) { avatar = " " }
-    if (member.guild.id = "501824700486516766") {
+    var server = member.guild.ud = "583414864677175306"
+    if (server = true) {
         member.guild.channels.get('534443162949910537').send(`**\`\`\`Une nouvelle personne à rejoins le serveur.\`\`\`**\n***Bienvenue à toi ${nom} !***\n\n●      **${avatar}**      ●`)
     }
-    if (member.guild.id = "583414864677175306") {
+    if (server = false) {
         member.send(`C'est ici que vous pourrez faire vos demandes, dans le salon #●demandes●. Après votre demande, veuillez patienter, car nous ne sommes peut-être pas connectés ou non disponibles.\n**Veuillez présenter ça sous la forme suivante, pour la compréhension des membres du staff :**\n\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n\n\`\`\`Sujet de la demande, en gros qu'est-ce que c'est. (exemple, un rôle perdu ou une erreur du staff)\`\`\`\n- Mention du rôle modérateur ou administrateur.\n\n> - Votre nom sur le serveur, pour vous trouver plus facilement. (Veuillez utiliser (>>> votre message) pour faire l'encadrement)\n>  \n> - Une description simple de votre problème.\n>  \n> - Une demande objective de ce que vous voulez au final. (s'il y en à une bien sûr)\n\n${member}`)
     }
 });
