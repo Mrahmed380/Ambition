@@ -30,7 +30,7 @@ client.on('guildMemberAdd', (member) => {
     var nom = member.user;
     var avatar = member.user.avatarURL;
     if (avatar === null) { avatar = " " }
-    if (!member.guild.id = "501824700486516766") {
+    if (member.guild.id = "501824700486516766") {
         member.guild.channels.get('534443162949910537').send(`**\`\`\`Une nouvelle personne à rejoins le serveur.\`\`\`**\n***Bienvenue à toi ${nom} !***\n\n●      **${avatar}**      ●`)
     }
     esle {
