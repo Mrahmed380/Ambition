@@ -38,7 +38,5 @@ module.exports = async (client, message) => {
     command = client.commands.get(client.aliases.get(cmd)) 
   }
   else console.log()
-  if (command)
-    { command.run(client, message, args); }
-  else return;
+  if (command) command.run(client, message, args);
 };
