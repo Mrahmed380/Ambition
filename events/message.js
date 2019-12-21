@@ -35,9 +35,10 @@ module.exports = async (client, message) => {
   if (cmd.length === 0) return;
   let command = client.commands.get(cmd);
   if (!command) {
-    command = client.commands.get(client.aliases.get(cmd)) 
-  }.catch(err => {
-    console.log(' ')
-  })
+    command = client.commands.get(client.aliases.get(cmd))
+    .catch(err => {
+      console.log(' ')
+    });
+  }
   if (command) command.run(client, message, args);
 };
