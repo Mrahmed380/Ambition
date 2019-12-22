@@ -43,6 +43,23 @@ client.on('guildMemberAdd', (member) => {
 
 
 client.on("message", (message) => {
+    if (message.channel.id === "593833705970073620") {
+        message.channel.fetchMessages("617444884604911626")
+        message.react('✅')
+        const filter = (reaction, user) => reaction.emoji.name === '✅'
+        const collector = msg.createReactionCollector(filter);
+        collector.on('collect', r => {
+            const guildMember = message.member;
+            guildMember.addRole("501845907151519745");
+        })
+    }
+});
+
+
+//=======================================//
+
+
+client.on("message", (message) => {
     if (message.author.bot) return;
     if (!message.member.hasPermission("ADMINISTRATOR")) {
         if (message.content.includes("☭" || "🖕" || ":middle_finger:" || "卐")) {
