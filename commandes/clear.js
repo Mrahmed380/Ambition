@@ -178,24 +178,6 @@ module.exports.run = async (client, message, args) => {
 
 
   await message.channel.bulkDelete(args[0])
-  .then((messages) => {
-    if (args[0] === '1')
-      {
-        const f1 = new Discord.RichEmbed()
-            .setColor('#32cd32')
-            .setTitle(`:white_check_mark: |  **${messages.size}** message à été supprimé !`)
-      	message.channel.send(f1).then(msg => msg.delete(5000));
-      }
-
-
-		else
-      {
-        const f2 = new Discord.RichEmbed()
-            .setColor('#32cd32')
-            .setTitle(`:white_check_mark: |  **${messages.size}** messages ont été supprimés !`)
-        message.channel.send(f2).then(msg => msg.delete(5000));
-      };
-  });
 };
 
 
