@@ -44,6 +44,7 @@ client.on('guildMemberAdd', (member) => {
 
 client.on("message", (message) => {
     if (message.author.bot) return;
+    if (!message.member.hasPermission("ADMINISTRATOR")) {
     if (message.content.includes("☭" || "🖕" || ":middle_finger:" || "卐")) {
         message.delete()
         .then(message => {
@@ -52,6 +53,7 @@ client.on("message", (message) => {
                 .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir.')
             message.author.send(s1);
         });
+    }
     }
 });
 
