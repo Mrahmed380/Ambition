@@ -29,8 +29,8 @@ module.exports.run = async (client, message, args) => {
 
 
   const test = new Discord.RichEmbed()
-      .setColor('#32cd32')
-      .setTitle(':white_check_mark: |  Ui.')
+      .setColor('#2f3136')
+      .setTitle(':white_check_mark:')
   message.channel.send(test).then(msg => msg.delete(5000))
 
 
@@ -39,8 +39,8 @@ module.exports.run = async (client, message, args) => {
 
 	.catch(err => {
 		const erreur = new Discord.RichEmbed()
-        .setColor('#ff0000')
-        .setTitle(':white_check_mark: |  Ion.')
+        .setColor('#2f3136')
+        .setTitle(':x:')
 		message.channel.send(erreur).then(r => r.delete(5000));
 	});
 };
