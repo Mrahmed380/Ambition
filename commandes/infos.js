@@ -34,10 +34,10 @@ module.exports.run = async (client, message, args) => {
 
 
 	const server = new Discord.RichEmbed()
-		.setTitle(':white_check_mark: |  **Voici les informations du serveur. **')
-		.setAuthor(serveur_size, serveur_icon)
+		.setTitle(':white_check_mark: |  **Voici les informations du serveur **')
+		.setThumbnail(serveur_icon)
 		.setColor("#2f3136")
-		.setDescription('\n\n**Nombre de membres:**\n' + serveur_members + '\n\n**Serveur vérifié:**\n' + serveur_verif)
+		.setDescription('\n\n**Nom du serveur:**\n' + serveur_size + '\n\n**Nombre de membres:**\n' + serveur_members + '\n\n**Serveur vérifié:**\n' + serveur_verif)
 
 
 	//=======================================//
