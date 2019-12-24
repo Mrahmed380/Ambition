@@ -36,12 +36,13 @@ module.exports.run = async (client, message, args) => {
 
 
 	if (!args[0])
-		{
-			const filter = m => m.author.id === message.author.id;
-      const s2 = new Discord.RichEmbed()
-        	.setColor('#ffa500')
-          .setTitle(':question: |  Que voulez-vous dire ? Veuillez écrire quelque chose. Vous pouvez envoyer `stop` pour annuler la commande.')
-      message.channel.send(s2).then(q => q.delete(30000));
+	{
+		const filter = m => m.author.id === message.author.id;
+      		const s2 = new Discord.RichEmbed()
+        		.setColor('#ffa500')
+          		.setTitle(':question: |  Que voulez-vous dire ? Veuillez écrire quelque chose. Vous pouvez envoyer `stop` pour annuler la commande.')
+      		message.channel.send(s2)
+      		.then(q => q.delete(30000));
 
 
       //=======================================//
@@ -63,7 +64,7 @@ module.exports.run = async (client, message, args) => {
             const stop = new Discord.RichEmbed()
                 .setColor('#ff0000')
                 .setTitle(':x: |  La commande a été annulée !')
-            return message.channel.send(stop).then(msg => msg.delete(5000));
+            message.channel.send(stop).then(msg => msg.delete(5000));
           }
 
 
