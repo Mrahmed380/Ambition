@@ -35,7 +35,7 @@ module.exports.run = async (client, message, args) => {
 		.setTitle(':white_check_mark: |  **Voici les informations du serveur **')
 		.setThumbnail(serveur_icon)
 		.setColor("#2f3136")
-		.setDescription('\n\n**Nom du serveur:**\n' + serveur_size + '\n\n**Nombre de membres:**\n' + serveur_members + '\n\n**Nombre de rôles:**\n' + serveur_roles + '\n\n**Créateur:**\nKoldran, avec le soutien de Repen et l\'aide du serveur Amandine.\n\n**Ambition est un bot qui à pour principale fonction d\'assister Palindrome.**\n')
+		.setDescription('\n\n**Nom du serveur:**\n' + serveur_size + '\n\n**Nombre de membres:**\n' + serveur_members + '\n\n**Nombre de rôles:**\n' + serveur_roles + '\n\n**Créateur:**\nKoldran, avec le soutien de Repen et l\'aide du serveur Amandine.\n\n**Ambition est un bot qui a pour principale fonction d\'assister Palindrome.**\n')
 
 
 	//=======================================//
