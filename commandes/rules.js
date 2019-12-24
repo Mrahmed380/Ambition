@@ -27,27 +27,27 @@ module.exports.run = async (client, message, args) => {
 
 
 	const s1 = new Discord.RichEmbed()
-      .setColor('#32cd32')
+      .setColor('#202225')
       .setTitle(':outbox_tray: |  Je vous envoie ça tout de suite :')
 
 
 	const s2 = new Discord.RichEmbed()
-      .setColor('#32cd32')
+      .setColor('#202225')
       .setTitle(':outbox_tray: |  Je vous envoie ça tout de suite : **.**')
 
 
 	const s3 = new Discord.RichEmbed()
-			.setColor('#32cd32')
+			.setColor('#202225')
 			.setTitle(':outbox_tray: |  Je vous envoie ça tout de suite : **..**')
 
 
 	const s4 = new Discord.RichEmbed()
-			.setColor('#32cd32')
+			.setColor('#202225')
 			.setTitle(':outbox_tray: |  Je vous envoie ça tout de suite : **...**')
 
 
 	const s5 = new Discord.RichEmbed()
-			.setColor('#32cd32')
+			.setColor('#202225')
 			.setTitle(':outbox_tray: |  Je vous envoie ça tout de suite : **....**')
 
 
