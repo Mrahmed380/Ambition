@@ -123,7 +123,11 @@ client.on("message", async message => {
     if (message.channel.id === "593833705970073620") {
         if (!message.member.hasPermission('ADMINISTRATOR')) {
             var links = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gmi;
-            if (message.attachments.size > 0 || message.content.match(links)) { }
+            if (message.attachments.size > 0 || message.content.match(links)) {
+                if (message.attachments.size < 0) {
+                    message.delete();
+                }
+            }
             else {
                 setTimeout(function () {
                     message.delete()
@@ -149,6 +153,11 @@ client.on("message", async message => {
             }
         }
     }
+});
+
+
+client.on('messageUpdate', (oldMessage, newMessage) => {
+    
 });
 
 
