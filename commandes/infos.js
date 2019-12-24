@@ -43,7 +43,7 @@ module.exports.run = async (client, message, args) => {
 		' + serveur_members + '
 	
 		**Serveur vérifié:**
-		' + serveur_verif +'
+		' + serveur_verif)
 
 
 	//=======================================//
