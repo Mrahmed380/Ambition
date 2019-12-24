@@ -4,6 +4,7 @@
 
 
 const Discord = require("discord.js");
+const cooldown = new Set();
 
 
 //=======================================//
@@ -11,10 +12,15 @@ const Discord = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
 	await message.delete();
+	
+	
+	//=======================================//
+	
+	
+	if (message.channel.id === "593833705970073620") return;
 
 
 	//=======================================//
-
 
 	var serveur_size = message.guild.name
 	var serveur_members = message.guild.members.size
@@ -34,50 +40,63 @@ module.exports.run = async (client, message, args) => {
 
 	//=======================================//
 
-
+	var temps = 5000;
 	const delay = ms => new Promise(res => setTimeout(res, ms));
-  await delay(500);
+  	await delay(500);
 
 
   //=======================================//
 
 
 	const s1 = new Discord.RichEmbed()
-      .setColor('#202225')
-      .setTitle(':outbox_tray: |  Je vous envoie ça tout de suite :')
+      		.setColor('#202225')
+      		.setTitle(':outbox_tray: |  Je vous envoie ça tout de suite :')
 
 
 	const s2 = new Discord.RichEmbed()
-      .setColor('#202225')
-      .setTitle(':outbox_tray: |  Je vous envoie ça tout de suite : **.**')
+      		.setColor('#202225')
+      		.setTitle(':outbox_tray: |  Je vous envoie ça tout de suite : **.**')
 
 
 	const s3 = new Discord.RichEmbed()
-			.setColor('#202225')
-			.setTitle(':outbox_tray: |  Je vous envoie ça tout de suite : **..**')
+		.setColor('#202225')
+		.setTitle(':outbox_tray: |  Je vous envoie ça tout de suite : **..**')
 
 
 	const s4 = new Discord.RichEmbed()
-			.setColor('#202225')
-			.setTitle(':outbox_tray: |  Je vous envoie ça tout de suite : **...**')
+		.setColor('#202225')
+		.setTitle(':outbox_tray: |  Je vous envoie ça tout de suite : **...**')
 
 
 	const s5 = new Discord.RichEmbed()
-			.setColor('#202225')
-			.setTitle(':outbox_tray: |  Je vous envoie ça tout de suite : **....**')
+		.setColor('#202225')
+		.setTitle(':outbox_tray: |  Je vous envoie ça tout de suite : **....**')
 
 
 	//=======================================//
-
-
-	message.channel.send(s1)
-	.then(message => {
-    message.edit(s2)
-    message.edit(s3)
-    message.edit(s4)
-    message.edit(s5)
-    message.edit(server)
-  });
+	
+	
+	if (cooldown.has(message.author.id)) {
+		const s1 = new Discord.RichEmbed()
+          		.setColor('#2f3136')
+          		.setTitle(':stopwatch: |  Vous devez attendre **15** secondes avant de pouvoir réutiliser la commande "y".')
+		message.author.send(s1)
+	}
+	
+	else {
+		message.channel.send(s1)
+		.then(message => {
+    			message.edit(s2)
+    			message.edit(s3)
+    			message.edit(s4)
+    			message.edit(s5)
+    			message.edit(server)
+			cooldown.add(message.author.id);
+			setTimeout(() => {
+				cooldown.delete(message.author.id);
+			}, temps);
+  		});
+	}
 };
 
 
