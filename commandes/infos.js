@@ -40,7 +40,7 @@ module.exports.run = async (client, message, args) => {
 
 	//=======================================//
 
-	var temps = 5000;
+	var temps = 10000;
 	const delay = ms => new Promise(res => setTimeout(res, ms));
   	await delay(500);
 
@@ -84,6 +84,7 @@ module.exports.run = async (client, message, args) => {
 	}
 	
 	else {
+		cooldown.add(message.author.id);
 		message.channel.send(s1)
 		.then(message => {
     			message.edit(s2)
@@ -91,7 +92,6 @@ module.exports.run = async (client, message, args) => {
     			message.edit(s4)
     			message.edit(s5)
     			message.edit(server)
-			cooldown.add(message.author.id);
 			setTimeout(() => {
 				cooldown.delete(message.author.id);
 			}, temps);
