@@ -44,26 +44,28 @@ client.on('guildMemberAdd', (member) => {
 
 client.on("message", (message) => {
     if (message.author.bot) return;
-    if (!message.member.hasPermission("ADMINISTRATOR")) {
-        if (message.content.includes("☭" || "🖕" || ":middle_finger:" || "卐")) {
-            message.delete()
-            .then(message => {
-                message.author.send('ui');
-            })
-        }
+    if (message.content.includes("☭" || "🖕" || ":middle_finger:" || "卐")) {
+        message.delete()
+        .then(message => {
+            const s1 = new Discord.RichEmbed()
+                .setColor('#2f3136')
+                .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir.')
+            message.author.send(s1);
+        });
     }
 });
 
 
 client.on('messageUpdate', function (oldMessage, newMessage) {
     if (newMessage.author.bot) return;
-    if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
-        if (newMessage.content.includes("☭" || "🖕" || ":middle_finger:" || "卐")) {
-            newMessage.delete()
-            .then(message => {
-                newMessage.author.send('ui');
-            })
-        }
+    if (newMessage.content.includes("☭" || "🖕" || ":middle_finger:" || "卐")) {
+        newMessage.delete()
+        .then(message => {
+            const s1 = new Discord.RichEmbed()
+                .setColor('#2f3136')
+                .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir.')
+            newMessage.author.send(s1);
+        });
     }
 });
 
@@ -77,7 +79,13 @@ client.on("message", (message) => {
         if (message.content.includes('https://discord.gg/' || 'discordapp.com/invite/')) {
             if (message.content.includes('https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r')) { }
             else {
-                message.delete();
+                message.delete()
+                .then(message => {
+                    const s1 = new Discord.RichEmbed()
+                        .setColor('#2f3136')
+                        .setTitle(':no_entry_sign: |  Veuillez ne pas envoyer de lien sur le serveur discord.')
+                    message.author.send(s1);
+                });
             }
         }
     }
@@ -90,7 +98,13 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
         if (newMessage.content.includes('https://discord.gg/' || 'discordapp.com/invite/')) {
             if (newMessage.content.includes('https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r')) { }
             else {
-                newMessage.delete();
+                newMessage.delete()
+                .then(message => {
+                    const s1 = new Discord.RichEmbed()
+                        .setColor('#2f3136')
+                        .setTitle(':no_entry_sign: |  Veuillez ne pas envoyer de lien sur le serveur discord.')
+                    newMessage.author.send(s1);
+                });
             }
         }
     }
@@ -108,12 +122,26 @@ client.on("message", async message => {
             if (message.attachments.size > 0 || message.content.match(links)) { }
             else {
                 setTimeout(function () {
-                    message.delete();
+                    message.delete()
+                    .then(message => {
+                        const s1 = new Discord.RichEmbed()
+                            .setColor('#2f3136')
+                            .setTitle(':no_entry_sign: |  Veuillez ne pas écrire dans le salon memes.')
+                        message.author.send(s1);
+                    });
                 }, 500);
             }
             if (message.content.includes('https://discord.gg/' || 'discordapp.com/invite/')) {
                 if (message.content.includes('https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r')) { }
-                else { message.delete(); }
+                else {
+                    message.delete()
+                    .then(message => {
+                        const s1 = new Discord.RichEmbed()
+                            .setColor('#2f3136')
+                            .setTitle(':no_entry_sign: |  Veuillez ne pas écrire dans le salon memes.')
+                        message.author.send(s1);
+                    });
+                }
             }
         }
     }
