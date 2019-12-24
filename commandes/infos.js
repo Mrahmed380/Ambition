@@ -19,15 +19,7 @@ module.exports.run = async (client, message, args) => {
 	var serveur_size = message.guild.name
 	var serveur_members = message.guild.members.size
 	var serveur_icon = message.guild.iconURL
-	var serveur_verif = message.guild.verified
-
-
-	if (serveur_verif === true)
-		{serveur_verif = '  :white_check_mark:'}
-
-
-	else
-		{serveur_verif = '  :x:'}
+	var serveur_roles = message.guild.roles.size
 
 
 	//=======================================//
@@ -37,7 +29,7 @@ module.exports.run = async (client, message, args) => {
 		.setTitle(':white_check_mark: |  **Voici les informations du serveur **')
 		.setThumbnail(serveur_icon)
 		.setColor("#2f3136")
-		.setDescription('\n\n**Nom du serveur:**\n' + serveur_size + '\n\n**Nombre de membres:**\n' + serveur_members + '\n\n**Serveur vérifié:**\n' + serveur_verif)
+		.setDescription('\n\n**Nom du serveur:**\n' + serveur_size + '\n\n**Nombre de membres:**\n' + serveur_members + '\n\n**Nombre de rôles:**\n' + serveur_roles)
 
 
 	//=======================================//
