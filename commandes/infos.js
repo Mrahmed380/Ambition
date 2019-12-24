@@ -37,13 +37,7 @@ module.exports.run = async (client, message, args) => {
 		.setTitle(':white_check_mark: |  **Voici les informations du serveur. **')
 		.setAuthor(serveur_size, serveur_icon)
 		.setColor("#2f3136")
-		.setDescription('
-		
-		**Nombre de membres:**
-		' + serveur_members + '
-	
-		**Serveur vérifié:**
-		' + serveur_verif)
+		.setDescription('\n\n**Nombre de membres:**\n' + serveur_members + '\n\n**Serveur vérifié:**\n' + serveur_verif)
 
 
 	//=======================================//
