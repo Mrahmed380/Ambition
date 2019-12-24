@@ -124,9 +124,7 @@ client.on("message", async message => {
         if (!message.member.hasPermission('ADMINISTRATOR')) {
             var links = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gmi;
             if (message.attachments.size > 0 || message.content.match(links)) {
-                if (message.attachments.size < 0) {
-                    message.delete();
-                }
+                
             }
             else {
                 setTimeout(function () {
@@ -157,7 +155,38 @@ client.on("message", async message => {
 
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
-    
+    if (newMessage.author.bot) return;
+    if (newMessage.channel.id === "593833705970073620") {
+        if (!newMessage.member.hasPermission('ADMINISTRATOR')) {
+            var links = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gmi;
+            if (newMessage.attachments.size > 0 || newMessage.content.match(links)) {
+                
+            }
+            else {
+                setTimeout(function () {
+                    newMessage.delete()
+                    .then(message => {
+                        const s1 = new Discord.RichEmbed()
+                            .setColor('#2f3136')
+                            .setTitle(':no_entry_sign: |  Veuillez ne pas écrire dans le salon memes.')
+                        newMessage.author.send(s1);
+                    });
+                }, 500);
+            }
+            if (newMessage.content.includes('https://discord.gg/' || 'discordapp.com/invite/')) {
+                if (newMessage.content.includes('https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r')) { }
+                else {
+                    newMessage.delete()
+                    .then(message => {
+                        const s1 = new Discord.RichEmbed()
+                            .setColor('#2f3136')
+                            .setTitle(':no_entry_sign: |  Veuillez ne pas écrire dans le salon memes.')
+                        newMessage.author.send(s1);
+                    });
+                }
+            }
+        }
+    }
 });
 
 
