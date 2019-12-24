@@ -63,7 +63,7 @@ module.exports.run = async (client, message, args) => {
 		{
 			const s1 = new Discord.RichEmbed()
           .setColor('#2f3136')
-          .setTitle(':stopwatch: |  Vous devez attendre **15** secondes avant de pouvoir réutiliser la commande.')
+          .setTitle(':stopwatch: |  Vous devez attendre **15** secondes avant de pouvoir réutiliser la commande "y".')
 			message.author.send(s1)
 		}
 
