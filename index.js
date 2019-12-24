@@ -46,7 +46,10 @@ client.on("message", (message) => {
     if (message.author.bot) return;
     if (!message.member.hasPermission("ADMINISTRATOR")) {
         if (message.content.includes("☭" || "🖕" || ":middle_finger:" || "卐")) {
-            message.delete();
+            message.delete()
+            .then(message => {
+                message.author.send('ui');
+            })
         }
     }
 });
