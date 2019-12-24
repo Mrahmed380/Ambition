@@ -56,7 +56,10 @@ client.on('messageUpdate', function (oldMessage, newMessage) {
     if (newMessage.author.bot) return;
     if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
         if (newMessage.content.includes("☭" || "🖕" || ":middle_finger:" || "卐")) {
-            newMessage.delete();
+            newMessage.delete()
+            .then(message => {
+                newMessage.author.send('ui');
+            })
         }
     }
 });
@@ -70,7 +73,9 @@ client.on("message", (message) => {
     if (!message.member.hasPermission("ADMINISTRATOR")) {
         if (message.content.includes('https://discord.gg/' || 'discordapp.com/invite/')) {
             if (message.content.includes('https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r')) { }
-            else { message.delete(); }
+            else {
+                message.delete();
+            }
         }
     }
 });
@@ -81,7 +86,9 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
     if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
         if (newMessage.content.includes('https://discord.gg/' || 'discordapp.com/invite/')) {
             if (newMessage.content.includes('https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r')) { }
-            else { newMessage.delete(); }
+            else {
+                newMessage.delete();
+            }
         }
     }
 });
