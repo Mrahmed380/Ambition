@@ -66,7 +66,7 @@ client.on('messageUpdate', function (oldMessage, newMessage) {
             .then(message => {
                 const s1 = new Discord.RichEmbed()
                     .setColor('#2f3136')
-                    .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir. (c\'est pas en éditant un meessage que cela passera...)')
+                    .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir. (c\'est pas en éditant un message que cela passera...)')
                 newMessage.author.send(s1);
             });
         }
@@ -106,7 +106,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
                 .then(message => {
                     const s1 = new Discord.RichEmbed()
                         .setColor('#2f3136')
-                        .setTitle(':no_entry_sign: |  Veuillez ne pas envoyer d\'invitation sur le serveur discord. Faite le au moins en privée, même si c\'est mal poli de le faire. (c\'est pas en éditant un meessage que cela passera...)')
+                        .setTitle(':no_entry_sign: |  Veuillez ne pas envoyer d\'invitation sur le serveur discord. Faite le au moins en privée, même si c\'est mal poli de le faire. (c\'est pas en éditant un message que cela passera...)')
                     newMessage.author.send(s1);
                 });
             }
@@ -168,7 +168,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
                     .then(message => {
                         const s1 = new Discord.RichEmbed()
                             .setColor('#2f3136')
-                            .setTitle(':no_entry_sign: |  Veuillez ne pas écrire dans le salon memes.')
+                            .setTitle(':no_entry_sign: |  Veuillez ne pas écrire dans le salon memes. (c\'est pas en éditant un message que cela passera...)')
                         newMessage.author.send(s1);
                     });
                 }, 500);
@@ -180,7 +180,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
                     .then(message => {
                         const s1 = new Discord.RichEmbed()
                             .setColor('#2f3136')
-                            .setTitle(':no_entry_sign: |  Veuillez ne pas écrire dans le salon memes.')
+                            .setTitle(':no_entry_sign: |  Veuillez ne pas écrire dans le salon memes. (c\'est pas en éditant un message que cela passera...)')
                         newMessage.author.send(s1);
                     });
                 }
