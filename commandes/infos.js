@@ -35,7 +35,7 @@ module.exports.run = async (client, message, args) => {
 
 	const server = new Discord.RichEmbed()
 		.setTitle(':white_check_mark: |  **Voici les informations du serveur. **')
-		.setColor("#32cd32")
+		.setColor("#202225")
 		.setDescription('\n\n**Nom du serveur:** \n' + serveur_size + '\n\n**Nombre de membres:** \n' + serveur_members + '\n\n**Serveur vérifié:**  \n' + serveur_verif +'\n\n**Icon:** ')
 		.setImage(serveur_icon)
 
@@ -51,27 +51,27 @@ module.exports.run = async (client, message, args) => {
 
 
 	const s1 = new Discord.RichEmbed()
-      .setColor('#32cd32')
+      .setColor('#202225')
       .setTitle(':outbox_tray: |  Je vous envoie ça tout de suite :')
 
 
 	const s2 = new Discord.RichEmbed()
-      .setColor('#32cd32')
+      .setColor('#202225')
       .setTitle(':outbox_tray: |  Je vous envoie ça tout de suite : **.**')
 
 
 	const s3 = new Discord.RichEmbed()
-			.setColor('#32cd32')
+			.setColor('#202225')
 			.setTitle(':outbox_tray: |  Je vous envoie ça tout de suite : **..**')
 
 
 	const s4 = new Discord.RichEmbed()
-			.setColor('#32cd32')
+			.setColor('#202225')
 			.setTitle(':outbox_tray: |  Je vous envoie ça tout de suite : **...**')
 
 
 	const s5 = new Discord.RichEmbed()
-			.setColor('#32cd32')
+			.setColor('#202225')
 			.setTitle(':outbox_tray: |  Je vous envoie ça tout de suite : **....**')
 
 
