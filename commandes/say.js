@@ -64,7 +64,8 @@ module.exports.run = async (client, message, args) => {
             const stop = new Discord.RichEmbed()
                 .setColor('#ff0000')
                 .setTitle(':x: |  La commande a été annulée !')
-            message.channel.send(stop).then(msg => msg.delete(5000));
+            message.channel.send(stop)
+	    .then(msg => msg.delete(5000));
           }
 
 
@@ -82,7 +83,8 @@ module.exports.run = async (client, message, args) => {
         	const erreur = new Discord.RichEmbed()
               .setColor('#ff0000')
               .setTitle(':x: |  **60** secondes se sont écoulées. Vous avez prit trop de temps pour répondre !')
-          message.channel.send(erreur).then(r => r.delete(5000));
+          message.channel.send(erreur)
+	  .then(r => r.delete(5000));
       	});
 	}
 
