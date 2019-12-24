@@ -46,8 +46,14 @@ const words = [
 
 module.exports.run = async (client, message, args) => {
 	await message.delete();
+	
+	
+	//=======================================//
+	
+	
+	if (message.channel.id === "593833705970073620") return;
 
-
+	
 	//=======================================//
 
 
