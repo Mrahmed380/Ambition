@@ -92,10 +92,10 @@ module.exports.run = async (client, message, args) => {
     			message.edit(s4)
     			message.edit(s5)
     			message.edit(server)
-			setTimeout(() => {
-				cooldown.delete(message.author.id);
-			}, temps);
   		});
+		setTimeout(() => {
+			cooldown.delete(message.author.id);
+		}, temps);
 	}
 };
 
