@@ -62,16 +62,16 @@ module.exports.run = async (client, message, args) => {
 	if (cooldown.has(message.author.id))
 		{
 			const s1 = new Discord.RichEmbed()
-          .setColor('#ffa500')
+          .setColor('#2f3136')
           .setTitle(':stopwatch: |  Vous devez attendre **15** secondes avant de pouvoir réutiliser la commande.')
-			message.channel.send(s1).then(msg => msg.delete(2000));
+			message.author.send(s1).then(msg => msg.delete(2000));
 		}
 
 
 	else
 		{
 			const s2 = new Discord.RichEmbed()
-          .setColor('#ffa500')
+          .setColor('#2f3136')
           .setTitle(words[Math.floor(Math.random() * words.length)])
 			message.channel.send(s2).then(msg => msg.delete(30000));
 			cooldown.add(message.author.id);
