@@ -61,13 +61,15 @@ client.on("message", (message) => {
 client.on('messageUpdate', function (oldMessage, newMessage) {
     if (newMessage.author.bot) return;
     if (newMessage.content.includes("☭" || "🖕" || ":middle_finger:" || "卐")) {
-        newMessage.delete()
-        .then(message => {
-            const s1 = new Discord.RichEmbed()
-                .setColor('#2f3136')
-                .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir.')
-            newMessage.author.send(s1);
-        });
+        if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
+            newMessage.delete()
+            .then(message => {
+                const s1 = new Discord.RichEmbed()
+                    .setColor('#2f3136')
+                    .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir.')
+                newMessage.author.send(s1);
+            });
+        }
     }
 });
 
