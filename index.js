@@ -51,7 +51,7 @@ client.on("message", (message) => {
     if (message.author.bot) return;
     var filteredwords = ['☭', '🖕', ':middle_finger:', '卐']
     if ((new RegExp(filteredwords.join('|'))).test(message.content)) {
-        //if (!message.member.hasPermission("ADMINISTRATOR")) {
+        if (!message.member.hasPermission("ADMINISTRATOR")) {
             message.delete()
             .then(message => {
                 const s1 = new Discord.RichEmbed()
@@ -59,7 +59,7 @@ client.on("message", (message) => {
                     .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir.')
                 message.author.send(s1);
             });
-        //}
+        }
     }
 });
 
