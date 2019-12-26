@@ -131,8 +131,9 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
 client.on("message", async message => {
     if (message.author.bot) return;
     if (message.channel.id === "593833705970073620") {
-        //if (!message.member.hasPermission('ADMINISTRATOR')) {
-            let links = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gmi;
+        if (!message.member.hasPermission('ADMINISTRATOR')) {
+            const links = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gmi;
+            const text = /.+/;
             if (message.attachments.size > 0 || message.content.match(links)) {
                 if (message.attachments.size > 0 && message.content.length > 0) {
                     message.delete()
@@ -143,6 +144,7 @@ client.on("message", async message => {
                         message.author.send(s1);
                     });
                 }
+                if (message.content.match(links) && message.content.match(text)) {message.delete()}
             }
             else {
                 setTimeout(function () {
@@ -169,7 +171,7 @@ client.on("message", async message => {
                     });
                 }
             }
-        //}
+        }
     }
 });
 
@@ -178,7 +180,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
     if (newMessage.author.bot) return;
     if (newMessage.channel.id === "593833705970073620") {
         if (!newMessage.member.hasPermission('ADMINISTRATOR')) {
-            let links = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gmi;
+            const links = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gmi;
             if (newMessage.attachments.size > 0 || newMessage.content.match(links)) {
                 if (newMessage.attachments.size > 0 && newMessage.content.length > 0) {
                     newMessage.delete()
