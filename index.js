@@ -154,7 +154,7 @@ client.on("message", (message) => {
         if (message.content.includes('https://discord.gg/' || 'discordapp.com/invite/')) {
             //if (message.content.includes('https://discord.gg/EweFGVR' 'https://discord.gg/dpFb93r')) { }
             var filteredwords = ['https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r']
-            if( (new RegExp( '\\b' + filteredwords.join('\\b|\\b') + '\\b') ) ) {}
+            if ((new RegExp(filteredwords.join('|'))).test(message.content)) {}
             else {
                 message.delete()
                 .then(message => {
