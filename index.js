@@ -51,7 +51,7 @@ client.on("message", (message) => {
     if (message.author.bot) return;
     var filteredwords = ['☭', '🖕', ':middle_finger:', '卐']
     if ((new RegExp(filteredwords.join('|'))).test(message.content)) {
-        //if (!message.member.hasPermission("ADMINISTRATOR")) {
+        if (!message.member.hasPermission("ADMINISTRATOR")) {
             message.delete()
             .then(message => {
                 const s1 = new Discord.RichEmbed()
@@ -59,7 +59,7 @@ client.on("message", (message) => {
                     .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir.')
                 message.author.send(s1);
             });
-        //}
+        }
     }
 });
 
@@ -68,7 +68,7 @@ client.on('messageUpdate', function (oldMessage, newMessage) {
     if (newMessage.author.bot) return;
     var filteredwords = ['☭', '🖕', ':middle_finger:', '卐']
     if ((new RegExp(filteredwords.join('|'))).test(newMessage.content)) {
-        if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
+        //if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
             newMessage.delete()
             .then(message => {
                 const s1 = new Discord.RichEmbed()
@@ -76,7 +76,7 @@ client.on('messageUpdate', function (oldMessage, newMessage) {
                     .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir. (c\'est pas en éditant un message que cela passera...)')
                 newMessage.author.send(s1);
             });
-        }
+        //}
     }
 });
 
