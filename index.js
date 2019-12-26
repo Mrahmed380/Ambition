@@ -50,7 +50,7 @@ client.on('guildMemberAdd', (member) => {
 client.on("message", (message) => {
     if (message.author.bot) return;
     var filteredwords = ['☭', '🖕', ':middle_finger:', '卐']
-    if (message.content.match(filteredwords)) {
+    if ((new RegExp(filteredwords.join('|'))).test(message.content)) {
         //if (!message.member.hasPermission("ADMINISTRATOR")) {
             message.delete()
             .then(message => {
