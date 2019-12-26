@@ -87,6 +87,19 @@ client.on("message", async message => {
         await message.react('🇺');
         await message.react('ℹ️');
     }
+    if (message.content.includes("ion")) {
+        await message.react('ℹ️');
+        await message.react('🇴');
+        await message.react('🇳');
+    }
+    if (message.content.includes("oof")) {
+        await message.react('🇴');
+        await message.react('🇴');
+        await message.react('🇫');
+    }
+    if (message.content.includes("chancla")) {
+        await message.react('👡');
+    }
 });
 
 
