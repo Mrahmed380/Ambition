@@ -31,6 +31,10 @@ module.exports.run = async (bot, message, args) => {
     }
     winnerCount = Number(messageArray[1]);
     time = Number(messageArray[2]);
+    var embed = new Discord.RichEmbed();
+    embed.setDescription(item);
+    var embedSent = await message.channel.send(embed);
+    
     
     
     //=======================================//
