@@ -44,7 +44,7 @@ client.on('guildMemberAdd', (member) => {
 
 client.on("message", (message) => {
     if (message.author.bot) return;
-    if (message.content.includes("☭" && "🖕" && ":middle_finger:" && "卐")) {
+    if (message.content.includes("☭", "🖕", ":middle_finger:", "卐")) {
         if (!message.member.hasPermission("ADMINISTRATOR")) {
             message.delete()
             .then(message => {
