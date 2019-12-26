@@ -82,6 +82,17 @@ client.on('messageUpdate', function (oldMessage, newMessage) {
 //=======================================//
 
 
+client.on("message", async message => {
+    if (message.content.includes("ui")) {
+        await message.react('🇺');
+        await message.react('ℹ️');
+    }
+});
+
+
+//=======================================//
+
+
 client.on("message", (message) => {
     if (message.author.bot) return;
     if (!message.member.hasPermission("ADMINISTRATOR")) {
