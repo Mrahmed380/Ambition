@@ -28,8 +28,7 @@ client.on('ready', function () {
 
 client.on('guildMemberAdd', (member) => {
     let nom = member.user;
-    let avatar = member.user.avatarURL;
-    if (avatar === null) { avatar = member.user.displayAvatarURL }
+    let avatar = member.user.displayAvatarURL;
     if (member.guild.id === "501824700486516766") {
         member.guild.channels.get('534443162949910537').send(`**\`\`\`Une nouvelle personne à rejoins le serveur.\`\`\`**\n***Bienvenue à toi ${nom} !***\n\n●      **${avatar}**      ●`);
     }
