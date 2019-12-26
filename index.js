@@ -152,7 +152,7 @@ client.on("message", (message) => {
     if (message.author.bot) return;
     //if (!message.member.hasPermission("ADMINISTRATOR")) {
         if (message.content.includes('https://discord.gg/' || 'discordapp.com/invite/')) {
-            if (message.content.includes('https://discord.gg/EweFGVR || https://discord.gg/dpFb93r')) { }
+            if (message.content.includes('https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r')) { }
             else {
                 message.delete()
                 .then(message => {
