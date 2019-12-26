@@ -68,7 +68,7 @@ client.on('messageUpdate', function (oldMessage, newMessage) {
     if (newMessage.author.bot) return;
     var filteredwords = ['☭', '🖕', ':middle_finger:', '卐']
     if ((new RegExp(filteredwords.join('|'))).test(newMessage.content)) {
-        //if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
+        if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
             newMessage.delete()
             .then(message => {
                 const s1 = new Discord.RichEmbed()
@@ -76,7 +76,7 @@ client.on('messageUpdate', function (oldMessage, newMessage) {
                     .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir. (c\'est pas en éditant un message que cela passera...)')
                 newMessage.author.send(s1);
             });
-        //}
+        }
     }
 });
 
@@ -89,7 +89,7 @@ client.on("message", (message) => {
     if (!message.member.hasPermission("ADMINISTRATOR")) {
         var links = ['https://discord.gg/', 'discordapp.com/invite/']
         if ((new RegExp(links.join('|'))).test(message.content)) {
-            var filteredwords = ['https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r']
+            var filteredwords = ['https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r', 'https://discordapp.com/invite/EweFGVR', 'https://discordapp.com/invite/dpFb93r']
             if ((new RegExp(filteredwords.join('|'))).test(message.content)) {}
             else {
                 message.delete()
@@ -110,7 +110,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
     if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
         var links = ['https://discord.gg/', 'discordapp.com/invite/']
         if ((new RegExp(links.join('|'))).test(newMessage.content)) {
-            var filteredwords = ['https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r']
+            var filteredwords = ['https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r', 'https://discordapp.com/invite/EweFGVR', 'https://discordapp.com/invite/dpFb93r']
             if ((new RegExp(filteredwords.join('|'))).test(newMessage.content)) {}
             else {
                 newMessage.delete()
@@ -150,7 +150,7 @@ client.on("message", async message => {
             }
             var links = ['https://discord.gg/', 'discordapp.com/invite/']
             if ((new RegExp(links.join('|'))).test(message.content)) {
-                var filteredwords = ['https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r']
+                var filteredwords = ['https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r', 'https://discordapp.com/invite/EweFGVR', 'https://discordapp.com/invite/dpFb93r']
                 if ((new RegExp(filteredwords.join('|'))).test(message.content)) {}
                 else {
                     message.delete()
@@ -188,7 +188,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
             }
             var links = ['https://discord.gg/', 'discordapp.com/invite/']
             if ((new RegExp(links.join('|'))).test(newMessage.content)) {
-                var filteredwords = ['https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r']
+                var filteredwords = ['https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r', 'https://discordapp.com/invite/EweFGVR', 'https://discordapp.com/invite/dpFb93r']
                 if ((new RegExp(filteredwords.join('|'))).test(newMessage.content)) {}
                 else {
                     newMessage.delete()
