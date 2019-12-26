@@ -178,7 +178,7 @@ client.on("message", async message => {
 client.on('messageUpdate', (oldMessage, newMessage) => {
     if (newMessage.author.bot) return;
     if (newMessage.channel.id === "593833705970073620") {
-        //if (!newMessage.member.hasPermission('ADMINISTRATOR')) {
+        if (!newMessage.member.hasPermission('ADMINISTRATOR')) {
             var links = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gmi;
             if (newMessage.attachments.size > 0 || newMessage.content.match(links)) {
                 if (newMessage.attachments.size > 0 && newMessage.content.length > 0) {
@@ -186,7 +186,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
                    .then(message => {
                         const s1 = new Discord.RichEmbed()
                             .setColor('#2f3136')
-                            .setTitle(':no_entry_sign: |  Veuillez envoyer vos fichiers sans ajouter de commentaire.')
+                            .setTitle(':no_entry_sign: |  Veuillez envoyer vos fichiers sans ajouter de commentaire. (c\'est pas en éditant un message que cela passera...)')
                         newMessage.author.send(s1);
                     });
                }
@@ -216,7 +216,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
                     });
                 }
             }
-        //}
+        }
     }
 });
 
