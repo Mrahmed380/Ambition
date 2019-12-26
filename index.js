@@ -49,8 +49,9 @@ client.on('guildMemberAdd', (member) => {
 
 client.on("message", (message) => {
     if (message.author.bot) return;
-    if (message.content.includes("☭")) {
-        if (!message.member.hasPermission("ADMINISTRATOR")) {
+    var filteredwords = ['☭', '🖕', ':middle_finger:', '卐']
+    if ((new RegExp(filteredwords.join('|'))).test(message.content)) {
+        //if (!message.member.hasPermission("ADMINISTRATOR")) {
             message.delete()
             .then(message => {
                 const s1 = new Discord.RichEmbed()
@@ -58,80 +59,15 @@ client.on("message", (message) => {
                     .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir.')
                 message.author.send(s1);
             });
-        }
-    }
-    if (message.content.includes("🖕")) {
-        if (!message.member.hasPermission("ADMINISTRATOR")) {
-            message.delete()
-            .then(message => {
-                const s1 = new Discord.RichEmbed()
-                    .setColor('#2f3136')
-                    .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir.')
-                message.author.send(s1);
-            });
-        }
-    }
-    if (message.content.includes(":middle_finger:")) {
-        if (!message.member.hasPermission("ADMINISTRATOR")) {
-            message.delete()
-            .then(message => {
-                const s1 = new Discord.RichEmbed()
-                    .setColor('#2f3136')
-                    .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir.')
-                message.author.send(s1);
-            });
-        }
-    }
-    if (message.content.includes("卐")) {
-        if (!message.member.hasPermission("ADMINISTRATOR")) {
-            message.delete()
-            .then(message => {
-                const s1 = new Discord.RichEmbed()
-                    .setColor('#2f3136')
-                    .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir.')
-                message.author.send(s1);
-            });
-        }
+        //}
     }
 });
 
 
 client.on('messageUpdate', function (oldMessage, newMessage) {
     if (newMessage.author.bot) return;
-    if (newMessage.content.includes("☭")) {
-        if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
-            newMessage.delete()
-            .then(message => {
-                const s1 = new Discord.RichEmbed()
-                    .setColor('#2f3136')
-                    .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir. (c\'est pas en éditant un message que cela passera...)')
-                newMessage.author.send(s1);
-            });
-        }
-    }
-    if (newMessage.content.includes("🖕")) {
-        if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
-            newMessage.delete()
-            .then(message => {
-                const s1 = new Discord.RichEmbed()
-                    .setColor('#2f3136')
-                    .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir. (c\'est pas en éditant un message que cela passera...)')
-                newMessage.author.send(s1);
-            });
-        }
-    }
-    if (newMessage.content.includes(":middle_finger:")) {
-        if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
-            newMessage.delete()
-            .then(message => {
-                const s1 = new Discord.RichEmbed()
-                    .setColor('#2f3136')
-                    .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir. (c\'est pas en éditant un message que cela passera...)')
-                newMessage.author.send(s1);
-            });
-        }
-    }
-    if (newMessage.content.includes("卐")) {
+    var filteredwords = ['☭', '🖕', ':middle_finger:', '卐']
+    if ((new RegExp(filteredwords.join('|'))).test(newMessage.content)) {
         if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
             newMessage.delete()
             .then(message => {
@@ -150,9 +86,9 @@ client.on('messageUpdate', function (oldMessage, newMessage) {
 
 client.on("message", (message) => {
     if (message.author.bot) return;
-    //if (!message.member.hasPermission("ADMINISTRATOR")) {
-        if (message.content.includes('https://discord.gg/' || 'discordapp.com/invite/')) {
-            //if (message.content.includes('https://discord.gg/EweFGVR' 'https://discord.gg/dpFb93r')) { }
+    if (!message.member.hasPermission("ADMINISTRATOR")) {
+        var links = ['https://discord.gg/', 'discordapp.com/invite/']
+        if ((new RegExp(links.join('|'))).test(message.content)) {
             var filteredwords = ['https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r']
             if ((new RegExp(filteredwords.join('|'))).test(message.content)) {}
             else {
@@ -165,15 +101,17 @@ client.on("message", (message) => {
                 });
             }
         }
-    //}
+    }
 });
 
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
     if (newMessage.author.bot) return;
     if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
-        if (newMessage.content.includes('https://discord.gg/' || 'discordapp.com/invite/')) {
-            if (newMessage.content.includes('https://discord.gg/EweFGVR' || 'https://discord.gg/dpFb93r')) { }
+        var links = ['https://discord.gg/', 'discordapp.com/invite/']
+        if ((new RegExp(links.join('|'))).test(newMessage.content)) {
+            var filteredwords = ['https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r']
+            if ((new RegExp(filteredwords.join('|'))).test(newMessage.content)) {}
             else {
                 newMessage.delete()
                 .then(message => {
@@ -210,8 +148,10 @@ client.on("message", async message => {
                     });
                 }, 500);
             }
-            if (message.content.includes('https://discord.gg/' || 'discordapp.com/invite/')) {
-                if (message.content.includes('https://discord.gg/EweFGVR' || 'https://discord.gg/dpFb93r')) { }
+            var links = ['https://discord.gg/', 'discordapp.com/invite/']
+            if ((new RegExp(links.join('|'))).test(message.content)) {
+                var filteredwords = ['https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r']
+                if ((new RegExp(filteredwords.join('|'))).test(message.content)) {}
                 else {
                     message.delete()
                     .then(message => {
@@ -246,8 +186,10 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
                     });
                 }, 500);
             }
-            if (newMessage.content.includes('https://discord.gg/' || 'discordapp.com/invite/')) {
-                if (newMessage.content.includes('https://discord.gg/EweFGVR' || 'https://discord.gg/dpFb93r')) { }
+            var links = ['https://discord.gg/', 'discordapp.com/invite/']
+            if ((new RegExp(links.join('|'))).test(newMessage.content)) {
+                var filteredwords = ['https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r']
+                if ((new RegExp(filteredwords.join('|'))).test(newMessage.content)) {}
                 else {
                     newMessage.delete()
                     .then(message => {
