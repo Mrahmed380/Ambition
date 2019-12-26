@@ -50,8 +50,8 @@ client.on('guildMemberAdd', (member) => {
 client.on("message", (message) => {
     if (message.author.bot) return;
     var filteredwords = ['☭', '🖕', ':middle_finger:', '卐']
-    if ((new RegExp(filteredwords.join('|'))).test(message.content)) {
-        if (!message.member.hasPermission("ADMINISTRATOR")) {
+    if (message.content.match(filteredwords)) {
+        //if (!message.member.hasPermission("ADMINISTRATOR")) {
             message.delete()
             .then(message => {
                 const s1 = new Discord.RichEmbed()
@@ -59,7 +59,7 @@ client.on("message", (message) => {
                     .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir.')
                 message.author.send(s1);
             });
-        }
+        //}
     }
 });
 
@@ -135,7 +135,7 @@ client.on("message", async message => {
         if (!message.member.hasPermission('ADMINISTRATOR')) {
             var links = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gmi;
             if (message.attachments.size > 0 || message.content.match(links)) {
-               if (message.attachments.size > 0 && message.content.length > 0) {
+                if (message.attachments.size > 0 && message.content.length > 0) {
                     message.delete()
                    .then(message => {
                         const s1 = new Discord.RichEmbed()
