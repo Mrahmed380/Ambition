@@ -134,10 +134,9 @@ client.on("message", async message => {
     if (message.channel.id === "593833705970073620") {
         //if (!message.member.hasPermission('ADMINISTRATOR')) {
             var links = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gmi;
-            if (message.attachments.size > 0 && message.content.size > 0) {
+            if (message.attachments.size > 0 && message.content.size < 0) {
                 message.delete()
             }
-            else {message.delete()}
             if (message.attachments.size > 0 || message.content.match(links)) {
                
             }
@@ -152,8 +151,8 @@ client.on("message", async message => {
                     });
                 }, 500);
             }
-            var links = ['https://discord.gg/', 'discordapp.com/invite/']
-            if ((new RegExp(links.join('|'))).test(message.content)) {
+            var links2 = ['https://discord.gg/', 'discordapp.com/invite/']
+            if ((new RegExp(links2.join('|'))).test(message.content)) {
                 var filteredwords = ['https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r', 'https://discordapp.com/invite/EweFGVR', 'https://discordapp.com/invite/dpFb93r']
                 if ((new RegExp(filteredwords.join('|'))).test(message.content)) {}
                 else {
