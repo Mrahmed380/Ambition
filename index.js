@@ -44,8 +44,40 @@ client.on('guildMemberAdd', (member) => {
 
 client.on("message", (message) => {
     if (message.author.bot) return;
-    var words = ["☭", "🖕", ":middle_finger:", "卐"]
-    if (message.content.includes(words)) {
+    if (message.content.includes("☭")) {
+        if (!message.member.hasPermission("ADMINISTRATOR")) {
+            message.delete()
+            .then(message => {
+                const s1 = new Discord.RichEmbed()
+                    .setColor('#2f3136')
+                    .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir.')
+                message.author.send(s1);
+            });
+        }
+    }
+    if (message.content.includes("🖕")) {
+        if (!message.member.hasPermission("ADMINISTRATOR")) {
+            message.delete()
+            .then(message => {
+                const s1 = new Discord.RichEmbed()
+                    .setColor('#2f3136')
+                    .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir.')
+                message.author.send(s1);
+            });
+        }
+    }
+    if (message.content.includes(":middle_finger:")) {
+        if (!message.member.hasPermission("ADMINISTRATOR")) {
+            message.delete()
+            .then(message => {
+                const s1 = new Discord.RichEmbed()
+                    .setColor('#2f3136')
+                    .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir.')
+                message.author.send(s1);
+            });
+        }
+    }
+    if (message.content.includes("卐")) {
         if (!message.member.hasPermission("ADMINISTRATOR")) {
             message.delete()
             .then(message => {
