@@ -31,7 +31,7 @@ module.exports.run = async (client, message, args) => {
   const test = new Discord.RichEmbed()
       .setColor('#2f3136')
       .setTitle(':white_check_mark:')
-  message.channel.send(s1).then(msg => msg.delete(5000))
+  message.channel.send(test).then(msg => msg.delete(5000))
 
 
   //=======================================//
