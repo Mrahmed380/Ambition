@@ -137,6 +137,7 @@ client.on("message", async message => {
             if (message.attachments.size > 0 && message.content.size > 0) {
                 message.delete()
             }
+            else {message.delete()}
             if (message.attachments.size > 0 || message.content.match(links)) {
                
             }
