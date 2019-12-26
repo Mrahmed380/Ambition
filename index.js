@@ -140,7 +140,7 @@ client.on("message", async message => {
                    .then(message => {
                         const s1 = new Discord.RichEmbed()
                             .setColor('#2f3136')
-                            .setTitle(':no_entry_sign: |  Veuillez ne pas écrire dans le salon memes.')
+                            .setTitle(':no_entry_sign: |  Veuillez envoyer vos fichiers sans ajouter de commentaire.')
                         message.author.send(s1);
                     });
                }
@@ -181,7 +181,15 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
         if (!newMessage.member.hasPermission('ADMINISTRATOR')) {
             var links = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gmi;
             if (newMessage.attachments.size > 0 || newMessage.content.match(links)) {
-                
+                if (newMessage.attachments.size > 0 && newMessage.content.length > 0) {
+                    newMessage.delete()
+                   .then(message => {
+                        const s1 = new Discord.RichEmbed()
+                            .setColor('#2f3136')
+                            .setTitle(':no_entry_sign: |  Veuillez envoyer vos fichiers sans ajouter de commentaire.')
+                        newMessage.author.send(s1);
+                    });
+               }
             }
             else {
                 setTimeout(function () {
@@ -194,8 +202,8 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
                     });
                 }, 500);
             }
-            var links = ['https://discord.gg/', 'discordapp.com/invite/']
-            if ((new RegExp(links.join('|'))).test(newMessage.content)) {
+            var links2 = ['https://discord.gg/', 'discordapp.com/invite/']
+            if ((new RegExp(links2.join('|'))).test(newMessage.content)) {
                 var filteredwords = ['https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r', 'https://discordapp.com/invite/EweFGVR', 'https://discordapp.com/invite/dpFb93r']
                 if ((new RegExp(filteredwords.join('|'))).test(newMessage.content)) {}
                 else {
