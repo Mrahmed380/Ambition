@@ -43,6 +43,7 @@ client.on('guildMemberAdd', (member) => {
     }
 });
 
+
 //=======================================//
 
 
@@ -151,7 +152,7 @@ client.on("message", (message) => {
     if (message.author.bot) return;
     if (!message.member.hasPermission("ADMINISTRATOR")) {
         if (message.content.includes('https://discord.gg/' || 'discordapp.com/invite/')) {
-            if (message.content.includes('https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r')) { }
+            if (message.content.includes('https://discord.gg/EweFGVR' || 'https://discord.gg/dpFb93r')) { }
             else {
                 message.delete()
                 .then(message => {
@@ -170,7 +171,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
     if (newMessage.author.bot) return;
     if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
         if (newMessage.content.includes('https://discord.gg/' || 'discordapp.com/invite/')) {
-            if (newMessage.content.includes('https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r')) { }
+            if (newMessage.content.includes('https://discord.gg/EweFGVR' || 'https://discord.gg/dpFb93r')) { }
             else {
                 newMessage.delete()
                 .then(message => {
@@ -208,7 +209,7 @@ client.on("message", async message => {
                 }, 500);
             }
             if (message.content.includes('https://discord.gg/' || 'discordapp.com/invite/')) {
-                if (message.content.includes('https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r')) { }
+                if (message.content.includes('https://discord.gg/EweFGVR' || 'https://discord.gg/dpFb93r')) { }
                 else {
                     message.delete()
                     .then(message => {
@@ -244,7 +245,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
                 }, 500);
             }
             if (newMessage.content.includes('https://discord.gg/' || 'discordapp.com/invite/')) {
-                if (newMessage.content.includes('https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r')) { }
+                if (newMessage.content.includes('https://discord.gg/EweFGVR' || 'https://discord.gg/dpFb93r')) { }
                 else {
                     newMessage.delete()
                     .then(message => {
