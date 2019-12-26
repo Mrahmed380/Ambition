@@ -135,32 +135,7 @@ client.on("message", async message => {
         //if (!message.member.hasPermission('ADMINISTRATOR')) {
             var links = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gmi;
             if (message.attachments.size > 0 || message.content.match(links)) {
-                if (message.attachments.size > 0 || message.content.match(links)) { }
-                else {
-                setTimeout(function () {
-                    message.delete()
-                    .then(message => {
-                        const s1 = new Discord.RichEmbed()
-                            .setColor('#2f3136')
-                            .setTitle(':no_entry_sign: |  Veuillez ne pas écrire dans le salon memes.')
-                        message.author.send(s1);
-                    });
-                }, 500);
-                }
-                var links = ['https://discord.gg/', 'discordapp.com/invite/']
-            if ((new RegExp(links.join('|'))).test(message.content)) {
-                var filteredwords = ['https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r', 'https://discordapp.com/invite/EweFGVR', 'https://discordapp.com/invite/dpFb93r']
-                if ((new RegExp(filteredwords.join('|'))).test(message.content)) {}
-                else {
-                    message.delete()
-                    .then(message => {
-                        const s1 = new Discord.RichEmbed()
-                            .setColor('#2f3136')
-                            .setTitle(':no_entry_sign: |  Veuillez ne pas écrire dans le salon memes.')
-                        message.author.send(s1);
-                    });
-                }
-            }
+                
             }
             else {
                 setTimeout(function () {
