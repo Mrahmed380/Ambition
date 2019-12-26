@@ -135,7 +135,7 @@ client.on("message", async message => {
         //if (!message.member.hasPermission('ADMINISTRATOR')) {
             var links = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gmi;
             if (message.attachments.size > 0 || message.content.match(links)) {
-               if (message.attachments.size < 0) {
+               if (message.attachments.caption === true) {
                     message.delete()
                }
             }
