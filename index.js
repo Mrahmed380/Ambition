@@ -152,7 +152,9 @@ client.on("message", (message) => {
     if (message.author.bot) return;
     //if (!message.member.hasPermission("ADMINISTRATOR")) {
         if (message.content.includes('https://discord.gg/' || 'discordapp.com/invite/')) {
-            if (message.content.includes('https://discord.gg/EweFGVR') && message.content.includes('https://discord.gg/dpFb93r')) { }
+            //if (message.content.includes('https://discord.gg/EweFGVR' 'https://discord.gg/dpFb93r')) { }
+            var filteredwords = ['https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r']
+            if( (new RegExp( '\\b' + filteredwords.join('\\b|\\b') + '\\b') ) ) {}
             else {
                 message.delete()
                 .then(message => {
