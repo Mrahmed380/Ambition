@@ -137,6 +137,12 @@ client.on("message", async message => {
             if (message.attachments.size > 0 || message.content.match(links)) {
                if (message.attachments.size > 0 && message.content.length > 0) {
                     message.delete()
+                   .then(message => {
+                        const s1 = new Discord.RichEmbed()
+                            .setColor('#2f3136')
+                            .setTitle(':no_entry_sign: |  Veuillez ne pas écrire dans le salon memes.')
+                        message.author.send(s1);
+                    });
                }
             }
             else {
