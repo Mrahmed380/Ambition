@@ -36,36 +36,33 @@ module.exports.run = async (bot, message, args) => {
     //=======================================//
 
 
-    var giveEmbed = new Discord.RichEmbed();
-    giveEmbed.setDescription(item);
-    var embedSent = await message.channel.send(giveEmbed);
-    embedSent.react("🎉");
     setTimeout(function() {
-        
-        
-        //=======================================//
+    var peopleReacted = embedSent.reactions.get("🎉").users;
+    var winners = [];
+    if (peopleReacted.length >= winnerCount) {
+        winners = peopleReacted;
+    }
+    else {
+        for (var i = 0; i < winnerCount; i++){
+            var index = Math.floor(Math.random() * peopleReacted.length);
+            winners.push(peopleReacted[index]);
+            peopleReacted.splice(index, 1);
+        }
+    }
 
+    var winnerMsg = "User(s) ";
+    for (var i = 0; i < winners.length; i++){
+        winnerMsg += (winners[i].toString() + ", ");
+    }
 
-        var peopleReacted = embedSent.reactions.get("🎉").users;
-        var index = Math.floor(Math.random() * peopleReacted.length);
-        var winners = [];
-        var winnerMsg = "";
-        for (var i = 0; i < winners.length; i++){
-            winnerMsg += (winners[i].toString() + " ");
-        }
-        var haveHas = "has";
-        if (winners.length == 1){
-            haveHas = "has";
-        }
-        else{
-            haveHas = "have";
-        }
-        message.channel.send(winnerMsg + " " + haveHas + ` won ${item}`);
-        
-        
-        //=======================================//
-        
-        
+    var haveHas;
+    if (winners.length === 1){
+        haveHas = "has";
+    }
+    else {
+        haveHas = "have";
+    }
+    message.channel.send(`${winnerMsg} ${haveHas} won ${item}`);
     }, time * 1000);
 };
 
