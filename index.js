@@ -93,7 +93,40 @@ client.on("message", (message) => {
 
 client.on('messageUpdate', function (oldMessage, newMessage) {
     if (newMessage.author.bot) return;
-    if (newMessage.content.includes("☭" || "🖕" || ":middle_finger:" || "卐")) {
+    if (newMessage.content.includes("☭")) {
+        if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
+            newMessage.delete()
+            .then(message => {
+                const s1 = new Discord.RichEmbed()
+                    .setColor('#2f3136')
+                    .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir. (c\'est pas en éditant un message que cela passera...)')
+                newMessage.author.send(s1);
+            });
+        }
+    }
+    if (newMessage.content.includes("🖕")) {
+        if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
+            newMessage.delete()
+            .then(message => {
+                const s1 = new Discord.RichEmbed()
+                    .setColor('#2f3136')
+                    .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir. (c\'est pas en éditant un message que cela passera...)')
+                newMessage.author.send(s1);
+            });
+        }
+    }
+    if (newMessage.content.includes(":middle_finger:")) {
+        if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
+            newMessage.delete()
+            .then(message => {
+                const s1 = new Discord.RichEmbed()
+                    .setColor('#2f3136')
+                    .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir. (c\'est pas en éditant un message que cela passera...)')
+                newMessage.author.send(s1);
+            });
+        }
+    }
+    if (newMessage.content.includes("卐")) {
         if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
             newMessage.delete()
             .then(message => {
