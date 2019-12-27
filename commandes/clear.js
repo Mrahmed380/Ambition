@@ -130,7 +130,7 @@ module.exports.run = async (client, message, args) => {
     //=======================================//
 
 
-    await message.channel.bulkDelete(args[0])
+    await message.channel.bulkDelete(args[0]);
 };
 
 
