@@ -83,12 +83,32 @@ client.on('messageUpdate', function (oldMessage, newMessage) {
 
 client.on("message", async message => {
     if (message.author.bot) return;
-    if (message.content.includes("ui")) {
+    let name = 'ui';
+    let def = name.toLowerCase();
+    if (message.content.includes(def)) {
         await message.react('🇺');
         await message.react('ℹ️');
     }
-    if (message.content.includes("chancla")) {
+    let name2 = 'chancla';
+    let def2 = name2.toLowerCase();
+    if (message.content.includes(def2)) {
         await message.react('🅱️');
+    }
+});
+
+
+client.on('messageUpdate', (oldMessage, newMessage) => {
+    if (newMessage.author.bot) return;
+    let name = 'ui';
+    let def = name.toLowerCase();
+    if (newMessage.content.includes(def)) {
+        await newMessage.react('🇺');
+        await newMessage.react('ℹ️');
+    }
+    let name2 = 'chancla';
+    let def2 = name2.toLowerCase();
+    if (newMessage.content.includes(def2)) {
+        await newMessage.react('🅱️');
     }
 });
 
