@@ -97,7 +97,7 @@ client.on("message", async message => {
 });
 
 
-client.on('messageUpdate', (oldMessage, newMessage) => {
+client.on('messageUpdate', async (oldMessage, newMessage) => {
     if (newMessage.author.bot) return;
     let name = 'ui';
     let def = name.toLowerCase();
