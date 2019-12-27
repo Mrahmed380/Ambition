@@ -4,6 +4,8 @@
 
 
 module.exports = (client) => {
-  client.user.setActivity('moi, bordel !!!', { type: 'LISTENING' })
-  .catch(console.error)
+    client.user.setActivity('moi, bordel !!!', {
+            type: 'LISTENING'
+        })
+        .catch(console.error)
 };
