@@ -45,56 +45,51 @@ const words = [
 
 
 module.exports.run = async (client, message, args) => {
-	await message.delete();
-	
-	
-	//=======================================//
-	
-	
-	if (message.channel.id === "593833705970073620") return;
-
-	
-	//=======================================//
+    await message.delete();
 
 
-	var temps = 15000;
-	const delay = ms => new Promise(res => setTimeout(res, ms));
-  await delay(500);
+    //=======================================//
 
 
-  //=======================================//
+    if (message.channel.id === "593833705970073620") return;
 
 
-	if (cooldown.has(message.author.id))
-		{
-			const s1 = new Discord.RichEmbed()
-          .setColor('#2f3136')
-          .setTitle(':stopwatch: |  Vous devez attendre **15** secondes avant de pouvoir réutiliser la commande "y".')
-			message.author.send(s1)
-		}
+    //=======================================//
 
 
-	else
-		{
-			const s2 = new Discord.RichEmbed()
-          .setColor('#2f3136')
-          .setTitle(words[Math.floor(Math.random() * words.length)])
-			message.channel.send(s2).then(msg => msg.delete(30000));
-			cooldown.add(message.author.id);
-			setTimeout(() => {
-				cooldown.delete(message.author.id);
-			}, temps);
-		}
+    let temps = 15000;
+    const delay = ms => new Promise(res => setTimeout(res, ms));
+    await delay(500);
+
+
+    //=======================================//
+
+
+    if (cooldown.has(message.author.id)) {
+        const s1 = new Discord.RichEmbed()
+            .setColor('#2f3136')
+            .setTitle(':stopwatch: |  Vous devez attendre **15** secondes avant de pouvoir réutiliser la commande "y".')
+        message.author.send(s1)
+    } else {
+        const s2 = new Discord.RichEmbed()
+            .setColor('#2f3136')
+            .setTitle(words[Math.floor(Math.random() * words.length)])
+        message.channel.send(s2).then(msg => msg.delete(30000));
+        cooldown.add(message.author.id);
+        setTimeout(() => {
+            cooldown.delete(message.author.id);
+        }, temps);
+    }
 };
 
 
 //=======================================//
 
 
-var name = "y";
-var def = name.toLowerCase();
+let name = "y";
+let def = name.toLowerCase();
 
 
 module.exports.help = {
-  name: def,
+    name: def,
 };
