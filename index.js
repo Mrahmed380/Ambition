@@ -83,9 +83,7 @@ client.on('messageUpdate', function (oldMessage, newMessage) {
 
 client.on("message", async message => {
     if (message.author.bot) return;
-    let name = 'ui';
-    let def = name.toLowerCase();
-    if (message.content.includes(def)) {
+    if (message.content.includes("ui").toLowerCase()) {
         await message.react('🇺');
         await message.react('ℹ️');
     }
