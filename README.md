@@ -1,2 +1,0 @@
-# Ambition
-Bot discord

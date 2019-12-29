@@ -18,7 +18,7 @@ module.exports.run = async (client, message, args) => {
 
     const envoyé = new Discord.RichEmbed()
         .setColor('#32cd32')
-        .setTitle(':white_check_mark: |  Je vous ai envoyé un exemplaire du règlement de Palindrome, prenez-en soin ! Regardez dans vos messages privés, si ceux-ci ne sont pas bloqués bien sûr.')
+        .setTitle('✅ |  Je vous ai envoyé un exemplaire du règlement de Palindrome, prenez-en soin ! Regardez dans vos messages privés, si ceux-ci ne sont pas bloqués bien sûr.')
     const delay = ms => new Promise(res => setTimeout(res, ms));
     await delay(500);
 
@@ -28,27 +28,27 @@ module.exports.run = async (client, message, args) => {
 
     const s1 = new Discord.RichEmbed()
         .setColor('#202225')
-        .setTitle(':outbox_tray: |  Je vous envoie ça tout de suite :')
+        .setTitle('📤 |  Je vous envoie ça tout de suite :')
 
 
     const s2 = new Discord.RichEmbed()
         .setColor('#202225')
-        .setTitle(':outbox_tray: |  Je vous envoie ça tout de suite : **.**')
+        .setTitle('📤 |  Je vous envoie ça tout de suite : **.**')
 
 
     const s3 = new Discord.RichEmbed()
         .setColor('#202225')
-        .setTitle(':outbox_tray: |  Je vous envoie ça tout de suite : **..**')
+        .setTitle('📤 |  Je vous envoie ça tout de suite : **..**')
 
 
     const s4 = new Discord.RichEmbed()
         .setColor('#202225')
-        .setTitle(':outbox_tray: |  Je vous envoie ça tout de suite : **...**')
+        .setTitle('📤 |  Je vous envoie ça tout de suite : **...**')
 
 
     const s5 = new Discord.RichEmbed()
         .setColor('#202225')
-        .setTitle(':outbox_tray: |  Je vous envoie ça tout de suite : **....**')
+        .setTitle('📤 |  Je vous envoie ça tout de suite : **....**')
 
 
     //=======================================//
@@ -72,7 +72,7 @@ module.exports.run = async (client, message, args) => {
             .catch(err => {
                 const erreur = new Discord.RichEmbed()
                     .setColor('#ff0000')
-                    .setTitle(':x: |  Vous messages privée sont bloqué ! Veuillez les activer.')
+                    .setTitle('❌ |  Vous messages privée sont bloqué ! Veuillez les activer.')
                 message.channel.send(erreur).then(r => r.delete(5000));
             });
     }, 1000);

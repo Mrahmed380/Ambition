@@ -33,7 +33,7 @@ module.exports.run = async (client, message, args) => {
 
 
     const server = new Discord.RichEmbed()
-        .setTitle(':white_check_mark: |  **Voici les informations du serveur **')
+        .setTitle('✅ |  **Voici les informations du serveur **')
         .setThumbnail(serveur_icon)
         .setColor("#2f3136")
         .setDescription('\n\n**Nom du serveur:**\n' + serveur_size + '\n\n**Nombre de membres:**\n' + serveur_members + '\n\n**Nombre de rôles:**\n' + serveur_roles + '\n\n**Créateur:**\nKoldran#7765, avec le soutien de Repen#3997 et l\'aide du serveur Amandine.\n\n**Ambition est un bot qui a pour principale fonction d\'assister Palindrome.**\n')
@@ -52,27 +52,27 @@ module.exports.run = async (client, message, args) => {
 
     const s1 = new Discord.RichEmbed()
         .setColor('#202225')
-        .setTitle(':outbox_tray: |  Je vous envoie ça tout de suite :')
+        .setTitle('📤 |  Je vous envoie ça tout de suite :')
 
 
     const s2 = new Discord.RichEmbed()
         .setColor('#202225')
-        .setTitle(':outbox_tray: |  Je vous envoie ça tout de suite : **.**')
+        .setTitle('📤 |  Je vous envoie ça tout de suite : **.**')
 
 
     const s3 = new Discord.RichEmbed()
         .setColor('#202225')
-        .setTitle(':outbox_tray: |  Je vous envoie ça tout de suite : **..**')
+        .setTitle('📤 |  Je vous envoie ça tout de suite : **..**')
 
 
     const s4 = new Discord.RichEmbed()
         .setColor('#202225')
-        .setTitle(':outbox_tray: |  Je vous envoie ça tout de suite : **...**')
+        .setTitle('📤 |  Je vous envoie ça tout de suite : **...**')
 
 
     const s5 = new Discord.RichEmbed()
         .setColor('#202225')
-        .setTitle(':outbox_tray: |  Je vous envoie ça tout de suite : **....**')
+        .setTitle('📤 |  Je vous envoie ça tout de suite : **....**')
 
 
     //=======================================//
@@ -81,7 +81,7 @@ module.exports.run = async (client, message, args) => {
     if (cooldown.has(message.author.id)) {
         const s1 = new Discord.RichEmbed()
             .setColor('#2f3136')
-            .setTitle(':stopwatch: |  Vous devez attendre **5** secondes avant de pouvoir réutiliser la commande "infos".')
+            .setTitle('⏱️ |  Vous devez attendre **5** secondes avant de pouvoir réutiliser la commande "infos".')
         message.author.send(s1)
     } else {
         cooldown.add(message.author.id);
