@@ -26,17 +26,23 @@ client.on('ready', function () {
 //=======================================//
 
 
-client.on('guildMemberAdd', (member) => {
-    let nom = member.user;
+client.on('guildMemberAdd', async member => {
     let avatar = member.user.displayAvatarURL;
     if (member.guild.id === "501824700486516766") {
-        member.guild.channels.get('534443162949910537').send(`**\`\`\`Une nouvelle personne à rejoins le serveur.\`\`\`**\n***Bienvenue à toi ${nom} !***\n\n●      **${avatar}**      ●`);
+        const welcom = new Discord.RichEmbed()
+            .setColor('#2f3136')
+            .setTitle(`**\`\`\`Une nouvelle personne à rejoint le serveur.\`\`\`**`)
+            .setDescription(`**Bienvenue à toi ${member.user.username} !**`)
+            .setThumbnail(avatar)
+        member.guild.channels.get('534443162949910537').send(welcom).catch(err => {
+            console.log
+        });
     } else {
         const s1 = new Discord.RichEmbed()
             .setColor('#2f3136')
             .setTitle('Bienvenue sur le serveur staff, c\'est ici que vous pourrez faire vos demandes. Pour faire une demande valide, veuillez suivre le même schéma que l\'image si dessous. Si votre demande ne suit pas celui-ci, elle n\'aura pas de suite.')
-            .setImage('https://cdn.discordapp.com/attachments/645024434947620884/659563311393931275/unknown.png')
-        member.send(s1);
+            .setImage('https://cdn.discordapp.com/attachments/594977170850447411/660175563779997726/Annotation_2019-12-27_184139.png')
+        member.send(s1).catch(err => {console.log});
     }
 });
 
@@ -53,9 +59,9 @@ client.on("message", (message) => {
                 .then(message => {
                     const s1 = new Discord.RichEmbed()
                         .setColor('#2f3136')
-                        .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir.')
+                        .setTitle('🚫 |  Veuillez ne plus envoyer cela à l\'avenir.')
                     message.author.send(s1);
-                });
+                }).catch(err => {console.log});
         }
     }
 });
@@ -70,45 +76,10 @@ client.on('messageUpdate', function (oldMessage, newMessage) {
                 .then(message => {
                     const s1 = new Discord.RichEmbed()
                         .setColor('#2f3136')
-                        .setTitle(':no_entry_sign: |  Veuillez ne plus envoyer cela à l\'avenir. (c\'est pas en éditant un message que cela passera...)')
+                        .setTitle('🚫 |  Veuillez ne plus envoyer cela à l\'avenir. (c\'est pas en éditant un message que cela passera...)')
                     newMessage.author.send(s1);
-                });
+                }).catch(err => {console.log});
         }
-    }
-});
-
-
-//=======================================//
-
-
-client.on("message", async message => {
-    let name = 'ui';
-    let def = name.toLowerCase();
-    let name2 = 'chancla';
-    let def2 = name2.toLowerCase();
-    if (message.author.bot) return;
-    if (message.content.includes(def)) {
-        await message.react('🇺');
-        await message.react('ℹ️');
-    }
-    if (message.content.includes(def2)) {
-        await message.react('🅱️');
-    }
-});
-
-
-client.on('messageUpdate', async (oldMessage, newMessage) => {
-    let name = 'ui';
-    let def = name.toLowerCase();
-    let name2 = 'chancla';
-    let def2 = name2.toLowerCase();
-    if (newMessage.author.bot) return;
-    if (newMessage.content.includes(def)) {
-        await newMessage.react('🇺');
-        await newMessage.react('ℹ️');
-    }
-    if (newMessage.content.includes(def2)) {
-        await newMessage.react('🅱️');
     }
 });
 
@@ -118,41 +89,46 @@ client.on('messageUpdate', async (oldMessage, newMessage) => {
 
 client.on("message", (message) => {
     if (message.author.bot) return;
-    if (!message.member.hasPermission("ADMINISTRATOR")) {
         const links = ['https://discord.gg/', 'discordapp.com/invite/']
         if ((new RegExp(links.join('|'))).test(message.content)) {
             const filteredwords = ['https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r', 'https://discordapp.com/invite/EweFGVR', 'https://discordapp.com/invite/dpFb93r']
             if ((new RegExp(filteredwords.join('|'))).test(message.content)) {} else {
-                message.delete()
-                    .then(message => {
-                        const s1 = new Discord.RichEmbed()
-                            .setColor('#2f3136')
-                            .setTitle(':no_entry_sign: |  Veuillez ne pas envoyer d\'invitation sur le serveur discord. Faite le au moins en privée, même si c\'est mal poli de le faire.')
-                        message.author.send(s1);
-                    });
+                if (!message.member.hasPermission("ADMINISTRATOR")) {
+                    message.delete()
+                        .then(message => {
+                            const s1 = new Discord.RichEmbed()
+                                .setColor('#2f3136')
+                                .setTitle('🚫 |  Veuillez ne pas envoyer d\'invitation sur le serveur discord. Faite le au moins en privée, même si c\'est mal poli de le faire.')
+                            message.author.send(s1);
+                        }).catch(err => {console.log});
+                } else {
+                  return;
+                }
             }
         }
-    }
 });
 
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
     if (newMessage.author.bot) return;
-    if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
         const links = ['https://discord.gg/', 'discordapp.com/invite/']
         if ((new RegExp(links.join('|'))).test(newMessage.content)) {
             const filteredwords = ['https://discord.gg/EweFGVR', 'https://discord.gg/dpFb93r', 'https://discordapp.com/invite/EweFGVR', 'https://discordapp.com/invite/dpFb93r']
             if ((new RegExp(filteredwords.join('|'))).test(newMessage.content)) {} else {
-                newMessage.delete()
-                    .then(message => {
-                        const s1 = new Discord.RichEmbed()
-                            .setColor('#2f3136')
-                            .setTitle(':no_entry_sign: |  Veuillez ne pas envoyer d\'invitation sur le serveur discord. Faite le au moins en privée, même si c\'est mal poli de le faire. (c\'est pas en éditant un message que cela passera...)')
-                        newMessage.author.send(s1);
-                    });
+                if (!newMessage.member.hasPermission("ADMINISTRATOR")) {
+                    newMessage.delete()
+                        .then(message => {
+                            const s1 = new Discord.RichEmbed()
+                                .setColor('#2f3136')
+                                .setTitle('🚫 |  Veuillez ne pas envoyer d\'invitation sur le serveur discord. Faite le au moins en privée, même si c\'est mal poli de le faire. (c\'est pas en éditant un message que cela passera...)')
+                            newMessage.author.send(s1);
+                        }).catch(err => {console.log});
+                } else {
+                  return;
+                }
             }
         }
-    }
+    
 });
 
 
@@ -162,7 +138,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
 client.on("message", async message => {
     if (message.author.bot) return;
     if (message.channel.id === "593833705970073620") {
-        //if (!message.member.hasPermission('ADMINISTRATOR')) {
+        if (!message.member.hasPermission('ADMINISTRATOR')) {
         const links = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gmi;
         if (message.attachments.size > 0 || message.content.match(links)) {
             if (message.attachments.size > 0 && message.content.length > 0) {
@@ -170,19 +146,19 @@ client.on("message", async message => {
                     .then(message => {
                         const s1 = new Discord.RichEmbed()
                             .setColor('#2f3136')
-                            .setTitle(':no_entry_sign: |  Veuillez envoyer vos fichiers sans ajouter de commentaire.')
+                            .setTitle('🚫 |  Veuillez envoyer vos fichiers sans ajouter de commentaire.')
                         message.author.send(s1);
-                    });
+                    }).catch(err => {console.log});
             }
         } else {
             setTimeout(function () {
                 message.delete()
                     .then(message => {
-                        const s1 = new Discord.RichEmbed()
+                        const s2 = new Discord.RichEmbed()
                             .setColor('#2f3136')
-                            .setTitle(':no_entry_sign: |  Veuillez ne pas écrire dans le salon memes.')
-                        message.author.send(s1);
-                    });
+                            .setTitle('🚫 |  Veuillez ne pas écrire dans le salon memes.')
+                        message.author.send(s2);
+                    }).catch(err => {console.log});
             }, 500);
         }
         const links2 = ['https://discord.gg/', 'discordapp.com/invite/']
@@ -191,14 +167,16 @@ client.on("message", async message => {
             if ((new RegExp(filteredwords.join('|'))).test(message.content)) {} else {
                 message.delete()
                     .then(message => {
-                        const s1 = new Discord.RichEmbed()
+                        const s3 = new Discord.RichEmbed()
                             .setColor('#2f3136')
-                            .setTitle(':no_entry_sign: |  Veuillez ne pas écrire dans le salon memes.')
-                        message.author.send(s1);
-                    });
+                            .setTitle('🚫 |  Veuillez ne pas écrire dans le salon memes.')
+                        message.author.send(s3);
+                    }).catch(err => {console.log});
             }
         }
-        //}
+        } else {
+          return;
+        }
     }
 });
 
@@ -214,19 +192,19 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
                         .then(message => {
                             const s1 = new Discord.RichEmbed()
                                 .setColor('#2f3136')
-                                .setTitle(':no_entry_sign: |  Veuillez envoyer vos fichiers sans ajouter de commentaire. (c\'est pas en éditant un message que cela passera...)')
+                                .setTitle('🚫 |  Veuillez envoyer vos fichiers sans ajouter de commentaire. (c\'est pas en éditant un message que cela passera...)')
                             newMessage.author.send(s1);
-                        });
+                        }).catch(err => {console.log});
                 }
             } else {
                 setTimeout(function () {
                     newMessage.delete()
                         .then(message => {
-                            const s1 = new Discord.RichEmbed()
+                            const s2 = new Discord.RichEmbed()
                                 .setColor('#2f3136')
-                                .setTitle(':no_entry_sign: |  Veuillez ne pas écrire dans le salon memes. (c\'est pas en éditant un message que cela passera...)')
-                            newMessage.author.send(s1);
-                        });
+                                .setTitle('🚫 |  Veuillez ne pas écrire dans le salon memes. (c\'est pas en éditant un message que cela passera...)')
+                            newMessage.author.send(s2);
+                        }).catch(err => {console.log});
                 }, 500);
             }
             const links2 = ['https://discord.gg/', 'discordapp.com/invite/']
@@ -235,13 +213,15 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
                 if ((new RegExp(filteredwords.join('|'))).test(newMessage.content)) {} else {
                     newMessage.delete()
                         .then(message => {
-                            const s1 = new Discord.RichEmbed()
+                            const s3 = new Discord.RichEmbed()
                                 .setColor('#2f3136')
-                                .setTitle(':no_entry_sign: |  Veuillez ne pas écrire dans le salon memes. (c\'est pas en éditant un message que cela passera...)')
-                            newMessage.author.send(s1);
-                        });
+                                .setTitle('🚫 |  Veuillez ne pas écrire dans le salon memes. (c\'est pas en éditant un message que cela passera...)')
+                            newMessage.author.send(s3);
+                        }).catch(err => {console.log});
                 }
             }
+        } else {
+          return;
         }
     }
 });
