@@ -18,7 +18,7 @@ const playing_list = [
     "mordre les gens",
     "faire un petit personnage.",
     "creuser un trou.",
-    "manger ses morts",
+    "manger ses morts.",
     "se cacher derrière toi.",
     "prendre des photos de toi.",
     "manger des croquettes.",
